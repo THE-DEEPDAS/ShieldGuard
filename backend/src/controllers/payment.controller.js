@@ -39,7 +39,7 @@ const coursePaymentConfirmation = asyncHandler(async (req, res) => {
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
     req.body;
 
-  if (!process.env.key_secret) {
+  if (!process.env.RAZORPAY_KEY_SECRET) {
     throw new ApiError(500, "Razorpay secret key not configured");
   }
 
