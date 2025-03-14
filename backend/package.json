@@ -5,8 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "npm install && npm run dev",
-    "dev": "nodemon  -r dotenv/config --experimental-json-modules src/index.js"
+    "start": "node -r dotenv/config src/index.js",
+    "build": "npm install",
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
   },
   "github": "https://github.com/Pika003/e-Learning-Platform.git",
   "author": "Parag, Satyajit, Gopi, Aditya",
