@@ -1,8 +1,6 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import razorpayInstance from "../config/razorpay.js";
-import crypto from "crypto";
 import { payment } from "../models/payment.model.js";
 import { Teacher } from "../models/teacher.model.js";
 
@@ -13,64 +11,40 @@ const coursePayment = asyncHandler(async (req, res) => {
     throw new ApiError(400, "fees is required");
   }
 
-  const options = {
-    amount: fees, // amount in the smallest currency unit
+  const order = {
+    id: "sim_" + Date.now(),
+    amount: fees,
     currency: "INR",
-    receipt: "order_rcptid_11",
+    status: "created",
   };
-  const order = await razorpayInstance.orders.create(options);
 
-  return res.status(200).json(new ApiResponse(200, order, "order fetched"));
+  return res.status(200).json(new ApiResponse(200, order, "order created"));
+});
+
+const coursePaymentConfirmation = asyncHandler(async (req, res) => {
+  const { orderId } = req.body;
+  const studentID = req.Student._id;
+  const courseID = req.params.courseID;
+
+  const orderDetails = await payment.create({
+    razorpay_order_id: orderId,
+    razorpay_payment_id: "sim_pay_" + Date.now(),
+    razorpay_signature: "simulated_signature",
+    courseID,
+    studentID,
+  });
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, { orderDetails }, "payment confirmed"));
 });
 
 const getkey = asyncHandler(async (req, res) => {
   return res
     .status(200)
     .json(
-      new ApiResponse(
-        200,
-        { key: razorpayInstance.key_id },
-        "razor key fetched"
-      )
+      new ApiResponse(200, { key: "simulated_key" }, "simulation key fetched")
     );
-});
-
-const coursePaymentConfirmation = asyncHandler(async (req, res) => {
-  const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
-    req.body;
-
-  if (!process.env.RAZORPAY_KEY_SECRET) {
-    throw new ApiError(500, "Razorpay secret key not configured");
-  }
-
-  const studentID = req.Student._id;
-  const courseID = req.params.courseID;
-  console.log(courseID);
-
-  const body = razorpay_order_id + "|" + razorpay_payment_id;
-
-  const expectedSignature = crypto
-    .createHmac("sha256", process.env.key_secret)
-    .update(body.toString())
-    .digest("hex");
-
-  const isAuthentic = expectedSignature === razorpay_signature;
-
-  if (isAuthentic) {
-    const orderDetails = await payment.create({
-      razorpay_order_id,
-      razorpay_payment_id,
-      razorpay_signature,
-      courseID,
-      studentID,
-    });
-
-    return res
-      .status(200)
-      .json(new ApiResponse(200, { orderDetails }, "payment confirmed"));
-  } else {
-    throw new ApiError(400, "payment failed");
-  }
 });
 
 const teacherAmount = asyncHandler(async (req, res) => {

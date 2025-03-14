@@ -11,18 +11,18 @@ const paymentSchema = new mongoose.Schema({
   },
   razorpay_signature: {
     type: String,
-    required: true,
+    default: "simulated_signature",
   },
   courseID: {
-    type:mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "course",
-    require:true,
+    require: true,
   },
   studentID: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'student',
-    require:true,
-  }
+    ref: "student",
+    require: true,
+  },
 });
 
 export const payment = mongoose.model("payment", paymentSchema);
