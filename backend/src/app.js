@@ -107,18 +107,4 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Online Learning Platform API");
 });
 
-const PORT = process.env.PORT || 5000;
-const server = app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-server.on("error", (err) => {
-  if (err.code === "EADDRINUSE") {
-    console.error(`Port ${PORT} is already in use. Trying another port...`);
-    server.listen(0); // Use an available port
-  } else {
-    throw err;
-  }
-});
-
 export { app };
