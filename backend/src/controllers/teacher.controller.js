@@ -10,7 +10,9 @@ import { sendVerificationEmail } from "../utils/emailjs.js";
 
 const verifyEmail = async (Email, Firstname, createdTeacherId) => {
   try {
-    const verificationLink = `http://localhost:4400/api/teacher/verify?id=${createdTeacherId}`;
+    const verificationLink = `${
+      process.env.BACKEND_URL?.replace(/\/$/, "") || "http://localhost:5000"
+    }/api/teacher/verify?id=${createdTeacherId}`;
     await sendVerificationEmail(Email, Firstname, verificationLink);
     console.log("Verification mail sent successfully");
   } catch (error) {
