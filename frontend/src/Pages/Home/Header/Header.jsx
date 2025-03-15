@@ -9,7 +9,7 @@ function Header() {
         <NavLink to="/">
           <div className="logo">
             <img src={Logo} alt="logo" />
-            <h1 className="text-2xl text-[#4E84C1] font-bold">Shiksharthee</h1>
+            <h1 className="text-2xl text-[#4E84C1] font-bold">ShieldGuard</h1>
           </div>
         </NavLink>
         <div className="link-nav">

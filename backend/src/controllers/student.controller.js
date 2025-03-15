@@ -30,7 +30,10 @@ const verifyEmail = async (Email, Firstname, createdStudent_id) => {
                 <img src="https://img.freepik.com/free-vector/illustration-e-mail-protection-concept-e-mail-envelope-with-file-document-attach-file-system-security-approved_1150-41788.jpg?size=626&ext=jpg&uid=R140292450&ga=GA1.1.553867909.1706200225&semt=ais" alt="Verification Image" style="width: 100%; height: auto;">
                 <br>
 
-                <a href="${process.env.BACKEND_URL?.replace(/\/$/, '') || 'http://localhost:5000'}/api/student/verify?id=${createdStudent_id}">
+                <a href="${
+                  process.env.BACKEND_URL?.replace(/\/$/, "") ||
+                  "http://localhost:5000"
+                }/api/student/verify?id=${createdStudent_id}">
                     <button style="background-color: black; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 10px 0; cursor: pointer;">Verify Email</button>
                 </a>
             </div>`,
@@ -338,9 +341,9 @@ const forgetPassword = asyncHandler(async (req, res) => {
    <p>We have received a request to reset your password. To proceed, please click on the following link: <a href="${resetToken}" target="_blank">reset your password</a>.</p>
    <p>If the link does not work for any reason, you can copy and paste the following URL into your browser's address bar:</p>
    <p>${resetToken}</p>
-   <p>Thank you for being a valued member of the Shiksharthee community. If you have any questions or need further assistance, please do not hesitate to contact our support team.</p>
+   <p>Thank you for being a valued member of the ShieldGuard community. If you have any questions or need further assistance, please do not hesitate to contact our support team.</p>
    <p>Best regards,</p>
-   <p>The Shiksharthee Team</p>`;
+   <p>The ShieldGuard Team</p>`;
 
   try {
     await Sendmail(Email, subject, message);
