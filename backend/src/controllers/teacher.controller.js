@@ -11,7 +11,7 @@ import { sendVerificationEmail } from "../utils/emailjs.js";
 const verifyEmail = async (Email, Firstname, createdTeacherId) => {
   try {
     const verificationLink = `${
-      process.env.BACKEND_URL?.replace(/\/$/, "") || "http://localhost:5000"
+      process.env.BACKEND_URL || "http://localhost:5000"
     }/api/teacher/verify?id=${createdTeacherId}`;
     await sendVerificationEmail(Email, Firstname, verificationLink);
     console.log("Verification mail sent successfully");
@@ -339,7 +339,9 @@ const ForgetPassword = asyncHandler(async (req, res) => {
 
   await User.save();
 
-  const resetToken = `${process.env.FRONTEND_URL}/teacher/forgetpassword/${User.forgetPasswordToken}`;
+  const resetToken = `${
+    process.env.FRONTEND_URL || "http://localhost:5173"
+  }/teacher/forgetpassword/${User.forgetPasswordToken}`;
 
   const subject = "RESET PASSWORD";
 

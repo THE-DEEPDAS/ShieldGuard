@@ -20,6 +20,10 @@ const verifyEmail = async (Email, Firstname, createdStudent_id) => {
       },
     });
 
+    const verificationUrl = `${
+      process.env.BACKEND_URL || "http://localhost:5000"
+    }/api/student/verify?id=${createdStudent_id}`;
+
     const mailOptions = {
       from: "elearningsnu@gmail.com",
       to: Email,
@@ -30,10 +34,7 @@ const verifyEmail = async (Email, Firstname, createdStudent_id) => {
                 <img src="https://img.freepik.com/free-vector/illustration-e-mail-protection-concept-e-mail-envelope-with-file-document-attach-file-system-security-approved_1150-41788.jpg?size=626&ext=jpg&uid=R140292450&ga=GA1.1.553867909.1706200225&semt=ais" alt="Verification Image" style="width: 100%; height: auto;">
                 <br>
 
-                <a href="${
-                  process.env.BACKEND_URL?.replace(/\/$/, "") ||
-                  "http://localhost:5000"
-                }/api/student/verify?id=${createdStudent_id}">
+                <a href="${verificationUrl}">
                     <button style="background-color: black; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 10px 0; cursor: pointer;">Verify Email</button>
                 </a>
             </div>`,
@@ -333,7 +334,9 @@ const forgetPassword = asyncHandler(async (req, res) => {
 
   await User.save();
 
-  const resetToken = `${process.env.FRONTEND_URL}/student/forgetpassword/${User.forgetPasswordToken}`;
+  const resetToken = `${
+    process.env.FRONTEND_URL || "http://localhost:5173"
+  }/student/forgetpassword/${User.forgetPasswordToken}`;
 
   const subject = "RESET PASSWORD";
 
