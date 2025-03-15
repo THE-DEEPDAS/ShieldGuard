@@ -12,6 +12,7 @@ import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
 import AdminLogin from "./Pages/Login/AdminLogin";
 import Admin from "./Pages/Components/Admin/Admin";
+import ChatBot from "./components/ChatBot/ChatBot";
 
 // Protected Route Component
 const ProtectedAdminRoute = ({ children }) => {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/healthchat" element={<ChatBot />} />
         <Route
           path="/admin/:id"
           element={

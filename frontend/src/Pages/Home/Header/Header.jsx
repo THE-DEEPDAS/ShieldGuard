@@ -1,11 +1,17 @@
 import "./Header.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Logo from "../../Images/logo.svg";
 
 function Header() {
+  const location = useLocation();
+
   return (
     <>
-      <header className="flex items-center justify-evenly bg-[#042439] w-full fixed z-10 gap-[20rem]">
+      <header
+        className={`flex items-center justify-evenly bg-[#042439] w-full fixed z-10 gap-[20rem] ${
+          location.pathname === "/healthchat" ? "relative" : ""
+        }`}
+      >
         <NavLink to="/">
           <div className="logo">
             <img src={Logo} alt="logo" />
@@ -50,6 +56,17 @@ function Header() {
                 Contact us{" "}
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/healthchat"
+                className={({ isActive }) =>
+                  isActive ? "active font-bold text-yellow-400" : "deactive"
+                }
+              >
+                {" "}
+                Health Chat{" "}
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="flex gap-6">
@@ -73,7 +90,9 @@ function Header() {
           </NavLink>
         </div>
       </header>
-      <div className="gapError"></div>
+      <div
+        className={location.pathname === "/healthchat" ? "hidden" : "gapError"}
+      ></div>
     </>
   );
 }

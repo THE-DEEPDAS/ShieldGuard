@@ -6,6 +6,7 @@ import nodemailer from "nodemailer";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { Teacher } from "../models/teacher.model.js";
 import { Sendmail } from "../utils/Nodemailer.js";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const verifyEmail = async (Email, Firstname, createdStudent_id) => {
   try {
@@ -396,6 +397,47 @@ const resetPassword = asyncHandler(async (req, res) => {
   }
 });
 
+const chatResponse = asyncHandler(async (req, res) => {
+  const { message } = req.body;
+
+  try {
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+    const chat = model.startChat({
+      history: [
+        {
+          role: "system",
+          content:
+            "You are a mental health support assistant focused on PTSD and trauma. Provide empathetic support and always encourage professional help when needed.",
+        },
+      ],
+      generationConfig: {
+        maxOutputTokens: 500,
+        temperature: 0.7,
+        topP: 0.8,
+        topK: 40,
+      },
+    });
+
+    const result = await chat.sendMessage(message);
+    const response = await result.response;
+
+    return res
+      .status(200)
+      .json(
+        new ApiResponse(
+          200,
+          { response: response.text() },
+          "Chat response generated"
+        )
+      );
+  } catch (error) {
+    console.error("Chat response error:", error);
+    throw new ApiError(500, "Failed to generate chat response");
+  }
+});
+
 export {
   signup,
   mailVerified,
@@ -405,4 +447,5 @@ export {
   getStudent,
   forgetPassword,
   resetPassword,
+  chatResponse,
 };
