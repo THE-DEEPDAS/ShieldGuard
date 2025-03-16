@@ -1,0 +1,35 @@
+.threat-intelligence {
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.news-item {
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.threat-high {
+  border-left: 5px solid red;
+}
+
+.threat-medium {
+  border-left: 5px solid yellow;
+}
+
+.threat-low {
+  border-left: 5px solid green;
+}
+
+.status-message {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}

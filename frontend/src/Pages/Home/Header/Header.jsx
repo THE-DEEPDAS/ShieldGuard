@@ -67,6 +67,15 @@ function Header() {
                 Health Chat{" "}
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/threat-intelligence"
+                className={({ isActive }) => (isActive ? "active" : "deactive")}
+              >
+                {" "}
+                Threat Intelligence{" "}
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="flex gap-6">

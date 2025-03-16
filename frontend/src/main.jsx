@@ -9,6 +9,7 @@ import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
 import AdminLogin from "./Pages/Login/AdminLogin";
 import ChatBot from "./Pages/ChatBot/ChatBot"; // Ensure correct import path
+import ThreatIntelligence from "./Pages/ThreatIntelligence/ThreatIntelligence"; // Import the new component
 
 import {
   RouterProvider,
@@ -95,6 +96,7 @@ const router = createBrowserRouter(
       <Route path="/teacher/forgetPassword/:token" element={<ResetTeacher />} />
       <Route path="/healthchat" element={<ChatBot />} />{" "}
       {/* Use ChatBot component */}
+      <Route path="/threat-intelligence" element={<ThreatIntelligence />} />
       <Route path="*" element={<ErrorPage />} />
     </Route>
   )
