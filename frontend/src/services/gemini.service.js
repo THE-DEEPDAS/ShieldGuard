@@ -4,30 +4,40 @@ import {
   formatMentalHealthQuery,
 } from "./mentalHealth.context.js";
 
-const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
+// Verify API key is available
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+if (!API_KEY) {
+  throw new Error(
+    "Missing Gemini API key - Please check your environment variables"
+  );
+}
+
+const genAI = new GoogleGenerativeAI(API_KEY);
 
 export const getChatResponse = async (messages) => {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
-    // Format the last message only
-    const lastMessage = messages[messages.length - 1].content;
-    const formattedQuery = formatMentalHealthQuery(lastMessage);
-
-    // Send message directly without chat history
-    const result = await model.generateContent(formattedQuery);
-    const response = await result.response;
-    const text = response.text();
-
-    // Check if response is mental health related
-    if (!isMentalHealthRelated(text)) {
-      return "I apologize, but I can only assist with mental health related questions. Could you please ask something about mental health, emotional well-being, or psychological support?";
+    if (!API_KEY) {
+      throw new Error("API key not configured");
     }
 
-    return text;
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const lastMessage = messages[messages.length - 1].content;
+
+    const prompt = `As a mental health support assistant, please respond to: ${lastMessage}`;
+
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+
+    return response.text();
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "I apologize, but I'm having trouble processing your request right now. If you're in crisis, please contact emergency services or a mental health helpline.";
+    if (
+      error.message?.includes("API_KEY_INVALID") ||
+      error.message?.includes("API key not configured")
+    ) {
+      return "Configuration error: Invalid or missing API key. Please contact support.";
+    }
+    return "I apologize, but I'm having trouble processing your request right now. If you need immediate help, please contact emergency services or a mental health helpline.";
   }
 };
 
