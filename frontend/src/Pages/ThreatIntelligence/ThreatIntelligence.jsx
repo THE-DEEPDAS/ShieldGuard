@@ -16,7 +16,7 @@ const ThreatIntelligence = () => {
     const fetchNews = async () => {
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?category=general&apiKey=${NEWS_API_KEY}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/threat-intelligence`
         );
         const data = await response.json();
         await summarizeAndAnalyzeNews(data.articles);
