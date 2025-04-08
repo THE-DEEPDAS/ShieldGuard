@@ -8,7 +8,7 @@ function Header() {
   return (
     <>
       <header
-        className={`flex items-center justify-evenly bg-[#042439] w-full fixed z-10 gap-[20rem] ${
+        className={`flex items-center justify-evenly bg-[#655949] w-full fixed z-10 gap-[10rem] ${
           location.pathname === "/healthchat" ? "relative" : ""
         }`}
       >

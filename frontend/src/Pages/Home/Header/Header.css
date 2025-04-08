@@ -10,19 +10,19 @@
     height: 50px;
 }
 .logo h3{
-    color: #fff;
+    color: #bebcb8;
     font-family: 'Gill Sans MT', sans-serif;
     text-decoration: none;
 }
 .link-nav ul{
     list-style: none;
-    color: #fff;
+    color: #bebcb8;
     display: flex;
     gap: 2rem;
 }
 
 button{
-    background-color: #4979D1;
+    background-color: #000;
     border: none;
     height: 40px;
     width: 90px;
@@ -31,10 +31,10 @@ button{
 }
 
 .deactive{
-    color: #fff;
+    color: #bebcb8;
     text-decoration: none;
 }
 .active{
-    color:#4979D1;
+    color:#fff;
     text-decoration: none;
 }
