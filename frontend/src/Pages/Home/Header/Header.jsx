@@ -15,7 +15,7 @@ function Header() {
         <NavLink to="/">
           <div className="logo">
             <img src={Logo} alt="logo" />
-            <h1 className="text-2xl text-[#4E84C1] font-bold">ShieldGuard</h1>
+            <h1 className="text-2xl text-black font-bold">ShieldGuard</h1>
           </div>
         </NavLink>
         <div className="link-nav">
@@ -100,7 +100,7 @@ function Header() {
         </div>
       </header>
       <div
-        className={location.pathname === "/healthchat" ? "hidden" : "gapError"}
+        className={location.pathname === "/healthchat" ? "hidden" : ""}
       ></div>
     </>
   );
