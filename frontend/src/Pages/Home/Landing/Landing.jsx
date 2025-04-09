@@ -317,22 +317,23 @@ function Landing() {
         <h4>About Us</h4>
         <div className="content">
           <p>
-            At ShieldGuard, we believe in the power of education to transform lives.
-            Our platform is designed to be a gateway to knowledge, offering a diverse
-            range of courses and learning experiences for students.
+            At ShieldGuard, we believe in the power of education to transform
+            lives. Our platform is designed to be a gateway to knowledge,
+            offering a diverse range of courses and learning experiences for
+            students.
           </p>
           <img src={Plant2} alt="About Us" />
           <p>
-            ShieldGuard was born out of a passion for learning and a desire to make
-            quality education accessible to everyone. We understand the challenges
-            faced by modern learners and strive to provide a solution that is both
-            convenient and effective.
+            ShieldGuard was born out of a passion for learning and a desire to
+            make quality education accessible to everyone. We understand the
+            challenges faced by modern learners and strive to provide a solution
+            that is both convenient and effective.
           </p>
           <p>
             Our mission is simple yet profound: to empower individuals through
-            education. We aim to create a global learning community where students
-            can discover new passions, enhance their skills, and achieve their
-            academic and professional goals.
+            education. We aim to create a global learning community where
+            students can discover new passions, enhance their skills, and
+            achieve their academic and professional goals.
           </p>
         </div>
       </div>
@@ -342,8 +343,8 @@ function Landing() {
         <div className="message">
           <h4>Contact Us</h4>
           <p>
-            Have questions or need assistance? We're here to help! Reach out to us
-            anytime, and our team will get back to you as soon as possible.
+            Have questions or need assistance? We're here to help! Reach out to
+            us anytime, and our team will get back to you as soon as possible.
           </p>
         </div>
         <div className="form">
