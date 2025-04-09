@@ -1,0 +1,83 @@
+/* Apply gradient background to the chatbot page */
+.chatbot-container {
+  background: linear-gradient(135deg, #2d0808, #ac7d13);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+/* Style the chatbot header */
+.chatbot-header {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  text-align: center;
+  color: #ffd700; /* Gold color for the header */
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Style the messages container */
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Style individual messages */
+.chat-message {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 8px;
+  word-wrap: break-word;
+}
+
+.user-message {
+  align-self: flex-end;
+  background: #004080; /* Blue background for user messages */
+  color: #ffffff;
+}
+
+.assistant-message {
+  align-self: flex-start;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black for assistant */
+  color: #ffffff;
+}
+
+/* Style the input form */
+.chatbot-input {
+  display: flex;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  border-top: 1px solid #ffd700; /* Gold border for input area */
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.chatbot-input button {
+  background: #ffd700; /* Gold button */
+  color: #2d0808;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chatbot-input button:hover {
+  background: #e6c200; /* Slightly darker gold on hover */
+}
+
+.chatbot-input button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
