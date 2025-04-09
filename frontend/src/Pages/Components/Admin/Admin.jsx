@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
-import logo from "../../Images/logo.svg";
+import logo from "../../Images/logo.jpg";
 import Course from "./Course";
 import axios from "axios";
 

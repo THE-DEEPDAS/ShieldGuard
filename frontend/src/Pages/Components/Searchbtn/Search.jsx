@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Search.css";
 import { useParams } from "react-router-dom";
-import logo from "../../Images/logo.svg";
+import logo from "../../Images/logo.jpg";
 import Success from "./Success";
 
 function Search() {

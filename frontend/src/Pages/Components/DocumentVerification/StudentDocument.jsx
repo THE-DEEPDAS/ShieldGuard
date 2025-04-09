@@ -3,7 +3,7 @@ import Input from "../DocumentVerification/InputComponent/Input.jsx";
 import InputUpload from "../DocumentVerification/Inputupload/InputUpload.jsx";
 import { useNavigate, useParams } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
-import logo from "../../Images/logo.svg";
+import logo from "../../Images/logo.jpg";
 
 const StudentDocument = () => {
   const [data, setdata] = useState([]);

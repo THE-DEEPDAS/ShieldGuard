@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import teachingImg from "../../Images/Teaching.svg";
 import { NavLink, useParams, useNavigate } from "react-router-dom";
-import logo from "../../Images/logo.svg";
+import logo from "../../Images/logo.jpg";
 
 function TeacherDashboard() {
   const { ID } = useParams();
