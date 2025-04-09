@@ -9,7 +9,7 @@
     width: 23rem;
     color: #FFF;
     font-family: sans-serif;
-    background-color:#0E3A59;
+    background-color:#221864;
     padding: 3px;
     border-radius: 15px;
     /* box-shadow: 2px 4px 10px black; */
@@ -46,7 +46,7 @@
     border:0;
     outline: 0;
     background: transparent;
-    border: 2px solid gray;
+    border: 2px solid rgb(53, 7, 97);
     width: 70%;
     padding-block:10px ;
     border-radius: 10px;
@@ -75,7 +75,7 @@
 
 .btn-4{
     color: #FFF;
-    background-color:#157776;
+    background-color:#22135f;
     display:block;
     text-align: center;
     margin-top: 20px;

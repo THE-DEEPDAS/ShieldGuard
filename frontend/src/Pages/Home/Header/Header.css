@@ -1,40 +1,58 @@
-.gapError{
-    height: 10vh;
+.gapError {
+    height: 12vh;
 }
-.logo{
+
+.logo {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
 }
-.logo img{
-    height: 50px;
+
+.logo img {
+    height: 60px;
 }
-.logo h3{
-    color: #bebcb8;
-    font-family: 'Gill Sans MT', sans-serif;
+
+.logo h3 {
+    color: #4a5568; /* Changed to a more neutral slate color */
+    font-family: 'Poppins', sans-serif;
     text-decoration: none;
 }
-.link-nav ul{
+
+.link-nav ul {
     list-style: none;
-    color: #bebcb8;
+    color: #718096; /* Updated to a medium gray */
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
-button{
-    background-color: #000;
+button {
+    background-color: #3f72af; /* Changed to a nice blue */
     border: none;
-    height: 40px;
-    width: 90px;
-    border-radius: 5px;
+    height: 45px; /* Slightly taller */
+    width: 110px; /* Slightly wider */
+    border-radius: 8px; /* More rounded corners */
     color: #fff;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-.deactive{
-    color: #bebcb8;
-    text-decoration: none;
+button:hover {
+    background-color: #2c5282; /* Darker blue on hover */
+    transform: translateY(-2px);
 }
-.active{
-    color:#fff;
+
+.deactive {
+    color: #718096; /* Medium gray for inactive links */
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.deactive:hover {
+    color: #4a5568; /* Slightly darker on hover */
+}
+
+.active {
+    color: #3f72af; /* Match button color */
+    text-decoration: none;
+    font-weight: 500;
 }

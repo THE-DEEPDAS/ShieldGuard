@@ -9,11 +9,11 @@ button:hover{
 
 /* === top section === */
 .top{
-    /* background: linear-gradient(90.05deg, #008280 1.26%, rgba(31, 163, 161, 0.58) 99.96%); */
     height: 60vh;
     display: flex;
     gap: 10px;
     margin-top: 10vh;
+    background-color: #000;
 }
 .top .left{
     padding: 25px;
@@ -31,10 +31,10 @@ button:hover{
 
 /* === features section === */
 .features {
-    background-color: #042439;
+    background-color: #3d64f2;
 }
 .features p{
-    color: #9433E0;
+    color: #fff;
     text-align: center;
     padding: 10px;
     font-family: Georgia, serif;
@@ -50,7 +50,7 @@ button:hover{
     /* align-items: end; */
 }
 .fet{
-    background-color: #0E3A59;
+    background-color: #81bae3;
     height: 200px;
     width: 300px;
     border-radius: 5px;
@@ -65,7 +65,7 @@ button:hover{
     width: 70px;
 }
 .fet h4{
-    color: #9433E0;
+    color: #dde033;
 }
 .fet p{
     color: #ffffff9f;
@@ -101,7 +101,7 @@ button:hover{
     margin: 5.5rem 0;
 }
 .courses p{
-    color: #042439;
+    color: #256d9d;
     font-size: larger;
     font-weight: 700;
     text-align: center;
@@ -184,7 +184,7 @@ button:hover{
 /* === Footer === */
 .footer{
     height: 230px;
-    background-color: #042439;
+    background-color: #5325d0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -220,7 +220,7 @@ button:hover{
 }
 
 .rightPart .links .link :hover{
-    color: #9433E0;
+    color: #341f68;
 }
 
 .hr{

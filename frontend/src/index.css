@@ -10,7 +10,7 @@
   padding: 0;
 }
 body{
-  background:linear-gradient(90deg, #053a4f 8.26%, rgba(20, 120, 118, 0.58) 99.96%);
+  background:linear-gradient(90deg, #501fa5 8.26%, rgba(35, 24, 119, 10.58) 99.96%);
   overflow: scroll;
 }
 body::-webkit-scrollbar{
