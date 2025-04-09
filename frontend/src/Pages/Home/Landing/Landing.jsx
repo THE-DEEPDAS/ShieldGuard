@@ -313,50 +313,45 @@ function Landing() {
       </div>
 
       {/* About Us */}
-      <div className="about" style={{ backgroundColor: "#042439" }}>
+      <div className="about">
         <h4>About Us</h4>
-        <hr className="underLine" />
         <div className="content">
-          <div className="left-svg">
-            <img src={Plant2} width={300} alt="" />
-          </div>
-          <div>
-            <p>
-              At ShieldGuard, we believe in the power of education to transform
-              lives. Our platform is designed to be a gateway to knowledge,
-              offering a diverse range of courses and learning experiences for
-              students.
-            </p>
-            <h1 className=" bg-blue-700 w-fit py-1 px-3 rounded-sm my-2">
-              Our Story
-            </h1>
-            <p>
-              ShieldGuard was born out of a passion for learning and a desire to
-              make quality education accessible to everyone. We understand the
-              challenges faced by modern learners and strive to provide a
-              solution that is both convenient and effective.
-            </p>
-            <h1 className=" bg-blue-700 w-fit py-1 px-3 rounded-sm my-2">
-              Our Mission
-            </h1>
-            <p>
-              Our mission is simple yet profound: to empower individuals through
-              education. We aim to create a global learning community where
-              students can discover new passions, enhance their skills, and
-              achieve their academic and professional goals. By leveraging
-              technology and innovative teaching methods, we strive to make
-              learning engaging, interactive, and enjoyable.
-            </p>
-          </div>
-          <div className="right-svg">
-            <img src={Plant} width={400} alt="" />
-          </div>
+          <p>
+            At ShieldGuard, we believe in the power of education to transform lives.
+            Our platform is designed to be a gateway to knowledge, offering a diverse
+            range of courses and learning experiences for students.
+          </p>
+          <img src={Plant2} alt="About Us" />
+          <p>
+            ShieldGuard was born out of a passion for learning and a desire to make
+            quality education accessible to everyone. We understand the challenges
+            faced by modern learners and strive to provide a solution that is both
+            convenient and effective.
+          </p>
+          <p>
+            Our mission is simple yet profound: to empower individuals through
+            education. We aim to create a global learning community where students
+            can discover new passions, enhance their skills, and achieve their
+            academic and professional goals.
+          </p>
         </div>
       </div>
 
       {/* Contact Us */}
       <div className="contact-us">
-        <Contact />
+        <div className="message">
+          <h4>Contact Us</h4>
+          <p>
+            Have questions or need assistance? We're here to help! Reach out to us
+            anytime, and our team will get back to you as soon as possible.
+          </p>
+        </div>
+        <div className="form">
+          <input type="text" placeholder="Your Name" />
+          <input type="email" placeholder="Your Email" />
+          <textarea placeholder="Your Message"></textarea>
+          <button>Submit</button>
+        </div>
       </div>
 
       {/* Footer */}
