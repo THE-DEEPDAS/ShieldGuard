@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import { app } from "./app.js";
 import mongoose from "mongoose";
+import express from "express";
 
 dotenv.config({
   path: "./.env",
@@ -15,6 +16,28 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+
+app.get("/api/threat-intelligence", async (req, res) => {
+  try {
+    const articles = [
+      {
+        title: "Cybersecurity Alert: New Malware Detected",
+        content:
+          "A new malware targeting financial institutions has been detected...",
+      },
+      {
+        title: "Global Tensions Rise Amid Conflict",
+        content: "Recent developments in the region have escalated tensions...",
+      },
+    ];
+    res.json({ articles });
+  } catch (error) {
+    console.error("Error fetching threat intelligence:", error);
+    res
+      .status(500)
+      .json({ error: "Failed to fetch threat intelligence data." });
+  }
+});
 
 const startServer = async () => {
   try {

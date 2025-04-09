@@ -18,6 +18,9 @@ const ThreatIntelligence = () => {
         const response = await fetch(
           `${import.meta.env.VITE_BACKEND_URL}/api/threat-intelligence`
         );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         await summarizeAndAnalyzeNews(data.articles);
       } catch (error) {
