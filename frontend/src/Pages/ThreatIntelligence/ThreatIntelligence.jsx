@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Header from "../Home/Header/Header"; // Add Header import
 import "./ThreatIntelligence.css";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
@@ -110,26 +111,29 @@ const ThreatIntelligence = () => {
   };
 
   return (
-    <div className="threat-intelligence">
-      <h1>Real-Time Threat Intelligence Dashboard</h1>
-      {status && <p className="status-message">{status}</p>}
-      {error ? (
-        <p className="error-message">{error}</p>
-      ) : (
-        <div className="news-list">
-          {news.map((item, index) => (
-            <div
-              key={index}
-              className={`news-item ${getThreatLevelClass(item.threatLevel)}`}
-            >
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-              <p>Threat Level: {item.threatLevel}%</p>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+    <>
+      <Header />
+      <div className="threat-intelligence">
+        <h1>Real-Time Threat Intelligence Dashboard</h1>
+        {status && <p className="status-message">{status}</p>}
+        {error ? (
+          <p className="error-message">{error}</p>
+        ) : (
+          <div className="news-list">
+            {news.map((item, index) => (
+              <div
+                key={index}
+                className={`news-item ${getThreatLevelClass(item.threatLevel)}`}
+              >
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+                <p>Threat Level: {item.threatLevel}%</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
