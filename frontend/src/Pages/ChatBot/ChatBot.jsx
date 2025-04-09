@@ -73,10 +73,7 @@ const ChatBot = () => {
         <div className="chatbot-header">
           <h1>Mental Health Support Chat</h1>
         </div>
-        <div
-          ref={chatContainerRef}
-          className="chatbot-messages"
-        >
+        <div ref={chatContainerRef} className="chatbot-messages">
           {messages.map((msg, idx) => (
             <div
               key={idx}
@@ -87,9 +84,7 @@ const ChatBot = () => {
               {msg.content}
             </div>
           ))}
-          {isLoading && (
-            <div className="assistant-message">Thinking...</div>
-          )}
+          {isLoading && <div className="assistant-message">Thinking...</div>}
         </div>
         <form onSubmit={handleSubmit} className="chatbot-input">
           <input
