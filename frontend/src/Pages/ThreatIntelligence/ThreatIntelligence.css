@@ -8,6 +8,11 @@
 }
 
 /* Style the header */
+header {
+  background: linear-gradient(135deg, #caae71, #fffbf0); /* Apply gradient */
+  color: #000; /* Ensure text is readable */
+}
+
 .threat-intelligence h1 {
   text-align: center;
   font-size: 2.5rem;
