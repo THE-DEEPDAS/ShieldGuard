@@ -1,35 +1,75 @@
+/* Apply gradient background to the entire page */
 .threat-intelligence {
+  background: linear-gradient(135deg, #2d0808, #ac7d13);
+  color: #ffffff; /* Set text color to white for better contrast */
+  min-height: 100vh;
   padding: 20px;
-  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
 }
 
+/* Style the header */
+.threat-intelligence h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffd700; /* Gold color for the header */
+}
+
+/* Style the status message */
+.status-message {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Style the error message */
+.error-message {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #ff4d4d; /* Red color for errors */
+}
+
+/* Style the news list container */
 .news-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
+/* Style individual news items */
 .news-item {
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
   padding: 15px;
   border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* High threat level styling */
 .threat-high {
-  border-left: 5px solid red;
+  border-left: 5px solid #ff0000; /* Red border for high threat */
 }
 
+/* Medium threat level styling */
 .threat-medium {
-  border-left: 5px solid yellow;
+  border-left: 5px solid #ffa500; /* Orange border for medium threat */
 }
 
+/* Low threat level styling */
 .threat-low {
-  border-left: 5px solid green;
+  border-left: 5px solid #00ff00; /* Green border for low threat */
 }
 
-.status-message {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 20px;
+/* Style the news title */
+.news-item h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #ffd700; /* Gold color for titles */
+}
+
+/* Style the news description */
+.news-item p {
+  margin: 5px 0;
+  color: #ffffff;
 }
