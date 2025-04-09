@@ -49,7 +49,7 @@ function StudentDashboard() {
   return (
     <>
       {/* navbar */}
-      <nav className="bg-[#2d0808] px-10 py-3 flex justify-between items-center">
+      <nav className="bg-[#2d0808] px-10 py-3 flex justify-between items-center fixed top-0 left-64 w-[calc(100%-16rem)] z-10">
         <NavLink to="/">
           <div className="flex items-center gap-3">
             <img src={logo} className="w-14" alt="" />
@@ -61,66 +61,58 @@ function StudentDashboard() {
         </div>
       </nav>
 
-      <div className="bg-[#caae71] flex justify-between items-center w-full">
-        <div className="text-[#2d0808] font-semibold text-5xl ml-20">
-          <h1 className="mb-5">
-            Welcome to <span className="text-[#2d0808]">ShieldGuard</span>
-          </h1>
-          <h3 className="ml-16 text-[#2d0808]">
-            {data.Firstname} {data.Lastname}
-          </h3>
+      <div className="flex mt-16">
+        {/* Sidebar */}
+        <div className="bg-[#2d0808] w-64 min-h-screen fixed top-0 left-0">
+          <div className="flex flex-col gap-1 mt-20">
+            <NavLink
+              to={`/Student/Dashboard/${ID}/Search`}
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-[#caae71] p-3 text-center font-semibold text-[#2d0808]"
+                  : "p-3 text-center font-semibold text-[#caae71]"
+              }
+            >
+              Teacher
+            </NavLink>
+            <NavLink
+              to={`/Student/Dashboard/${ID}/Classes`}
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-[#caae71] p-3 text-center font-semibold text-[#2d0808]"
+                  : "p-3 text-center font-semibold text-[#caae71]"
+              }
+            >
+              Classes
+            </NavLink>
+            <NavLink
+              to={`/Student/Dashboard/${ID}/Courses`}
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-[#caae71] p-3 text-center font-semibold text-[#2d0808]"
+                  : "p-3 text-center font-semibold text-[#caae71]"
+              }
+            >
+              Courses
+            </NavLink>
+          </div>
         </div>
-        <div className="m-5 mr-20">
-          <img src={teachingImg} alt="teaching" width={300} />
-        </div>
-      </div>
 
-      {/* sidebar */}
-      <div className="bg-[#2d0808] w-52 min-h-screen fixed top-20 left-0">
-        <div className="flex flex-col gap-5 text-xl items-center text-[#caae71] mt-8 mb-10">
-          <img
-            src="https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png"
-            alt="profile_img"
-            width={50}
-          />
-          <p>
-            {data.Firstname} {data.Lastname}
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-1">
-          <NavLink
-            to={`/Student/Dashboard/${ID}/Search`}
-            className={({ isActive }) =>
-              isActive
-                ? "bg-[#caae71] p-3 px-[4.61rem] text-center font-semibold text-[#2d0808]"
-                : "p-3 text-center font-semibold text-[#caae71]"
-            }
-          >
-            Teacher
-          </NavLink>
-
-          <NavLink
-            to={`/Student/Dashboard/${ID}/Classes`}
-            className={({ isActive }) =>
-              isActive
-                ? "bg-[#caae71] p-3 px-[4.61rem] text-center font-semibold text-[#2d0808]"
-                : "p-3 text-center font-semibold text-[#caae71]"
-            }
-          >
-            Classes
-          </NavLink>
-
-          <NavLink
-            to={`/Student/Dashboard/${ID}/Courses`}
-            className={({ isActive }) =>
-              isActive
-                ? "bg-[#caae71] p-3 px-[4.61rem] text-center font-semibold text-[#2d0808]"
-                : "p-3 text-center font-semibold text-[#caae71]"
-            }
-          >
-            Courses
-          </NavLink>
+        {/* Main Content */}
+        <div className="ml-64 flex-1 overflow-x-auto mt-16 p-5">
+          <div className="bg-[#caae71] flex justify-between items-center w-full p-5 rounded-md">
+            <div className="text-[#2d0808] font-semibold text-5xl">
+              <h1 className="mb-5">
+                Welcome to <span className="text-[#2d0808]">ShieldGuard</span>
+              </h1>
+              <h3 className="text-[#2d0808]">
+                {data.Firstname} {data.Lastname}
+              </h3>
+            </div>
+            <div>
+              <img src={teachingImg} alt="teaching" width={300} />
+            </div>
+          </div>
         </div>
       </div>
     </>
