@@ -44,60 +44,234 @@ import Course from "./Pages/Components/Admin/Course";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="/" element={<Landing />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/Signup" element={<Signup />} />
-      <Route path="/Search/:subject" element={<SearchData />} />
-      <Route path="/StudentDocument/:Data" element={<StudentDocument />} />
-      <Route path="/TeacherDocument/:Data" element={<TeacherDocument />} />
-      <Route path="/courses" element={<Courses />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/varifyEmail" element={<VarifyEmail />} />
-      <Route path="/adminLogin/" element={<AdminLogin />} />
-      <Route path="/rejected/:user/:ID" element={<Rejected />} />
-      <Route path="/pending" element={<Pending />} />
-      <Route path="/admin/:data" element={<Admin />} />
-      <Route path="/admin/course/:data" element={<Course />} />
-      <Route path="/VarifyDoc/:type/:adminID/:ID" element={<VarifyDoc />} />
+      <Route
+        path="/"
+        element={
+          <div className="page-content">
+            <Landing />
+          </div>
+        }
+      />
+      <Route
+        path="/login"
+        element={
+          <div className="page-content">
+            <Login />
+          </div>
+        }
+      />
+      <Route
+        path="/Signup"
+        element={
+          <div className="page-content">
+            <Signup />
+          </div>
+        }
+      />
+      <Route
+        path="/Search/:subject"
+        element={
+          <div className="page-content">
+            <SearchData />
+          </div>
+        }
+      />
+      <Route
+        path="/StudentDocument/:Data"
+        element={
+          <div className="page-content">
+            <StudentDocument />
+          </div>
+        }
+      />
+      <Route
+        path="/TeacherDocument/:Data"
+        element={
+          <div className="page-content">
+            <TeacherDocument />
+          </div>
+        }
+      />
+      <Route
+        path="/courses"
+        element={
+          <div className="page-content">
+            <Courses />
+          </div>
+        }
+      />
+      <Route
+        path="/contact"
+        element={
+          <div className="page-content">
+            <Contact />
+          </div>
+        }
+      />
+      <Route
+        path="/about"
+        element={
+          <div className="page-content">
+            <About />
+          </div>
+        }
+      />
+      <Route
+        path="/varifyEmail"
+        element={
+          <div className="page-content">
+            <VarifyEmail />
+          </div>
+        }
+      />
+      <Route
+        path="/adminLogin/"
+        element={
+          <div className="page-content">
+            <AdminLogin />
+          </div>
+        }
+      />
+      <Route
+        path="/rejected/:user/:ID"
+        element={
+          <div className="page-content">
+            <Rejected />
+          </div>
+        }
+      />
+      <Route
+        path="/pending"
+        element={
+          <div className="page-content">
+            <Pending />
+          </div>
+        }
+      />
+      <Route
+        path="/admin/:data"
+        element={
+          <div className="page-content">
+            <Admin />
+          </div>
+        }
+      />
+      <Route
+        path="/admin/course/:data"
+        element={
+          <div className="page-content">
+            <Course />
+          </div>
+        }
+      />
+      <Route
+        path="/VarifyDoc/:type/:adminID/:ID"
+        element={
+          <div className="page-content">
+            <VarifyDoc />
+          </div>
+        }
+      />
       <Route path="/Student/Dashboard/:ID" element={<StudentLayout />}>
         <Route
           path="/Student/Dashboard/:ID/Search"
-          element={<SearchTeacher />}
+          element={
+            <div className="page-content">
+              <SearchTeacher />
+            </div>
+          }
         />
         <Route
           path="/Student/Dashboard/:ID/Classes"
-          element={<StudentClasses />}
+          element={
+            <div className="page-content">
+              <StudentClasses />
+            </div>
+          }
         />
         <Route
           path="/Student/Dashboard/:ID/Courses"
-          element={<StudentCourses />}
+          element={
+            <div className="page-content">
+              <StudentCourses />
+            </div>
+          }
         />
       </Route>
       <Route path="/Teacher/Dashboard/:ID" element={<TeacherLayout />}>
         <Route
           path="/Teacher/Dashboard/:ID/Home"
-          element={<DashboardTeacher />}
+          element={
+            <div className="page-content">
+              <DashboardTeacher />
+            </div>
+          }
         />
         <Route
           path="/Teacher/Dashboard/:ID/Classes"
-          element={<TeacherClasses />}
+          element={
+            <div className="page-content">
+              <TeacherClasses />
+            </div>
+          }
         />
         <Route
           path="/Teacher/Dashboard/:ID/Courses"
-          element={<TeacherCourses />}
+          element={
+            <div className="page-content">
+              <TeacherCourses />
+            </div>
+          }
         />
       </Route>
-      <Route path="/forgetPassword" element={<Forgetpassword />} />
+      <Route
+        path="/forgetPassword"
+        element={
+          <div className="page-content">
+            <Forgetpassword />
+          </div>
+        }
+      />
       <Route
         path="/student/forgetPassword/:token"
-        element={<ResetPassword />}
+        element={
+          <div className="page-content">
+            <ResetPassword />
+          </div>
+        }
       />
-      <Route path="/teacher/forgetPassword/:token" element={<ResetTeacher />} />
-      <Route path="/healthchat" element={<ChatBot />} />{" "}
-      {/* Use ChatBot component */}
-      <Route path="/threat-intelligence" element={<ThreatIntelligence />} />
-      <Route path="*" element={<ErrorPage />} />
+      <Route
+        path="/teacher/forgetPassword/:token"
+        element={
+          <div className="page-content">
+            <ResetTeacher />
+          </div>
+        }
+      />
+      <Route
+        path="/healthchat"
+        element={
+          <div className="page-content">
+            <ChatBot />
+          </div>
+        }
+      />
+      <Route
+        path="/threat-intelligence"
+        element={
+          <div className="page-content">
+            <ThreatIntelligence />
+          </div>
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <div className="page-content">
+            <ErrorPage />
+          </div>
+        }
+      />
     </Route>
   )
 );

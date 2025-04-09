@@ -90,3 +90,8 @@ body {
 .content-spacing {
   margin-top: 70px; /* Add spacing below the navbar to prevent overlap */
 }
+
+/* Add more spacing at the top for all main content to prevent overlap with the navbar */
+main, section, .page-content {
+  margin-top: 90px; /* Increased spacing to ensure headings are fully visible */
+}
