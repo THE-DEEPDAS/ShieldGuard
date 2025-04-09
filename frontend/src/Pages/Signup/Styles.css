@@ -1,111 +1,123 @@
-.section{
-   display: flex;
-   align-items: center;  
-   margin-left: 200px;
+body {
+    background: linear-gradient(135deg, #2d0808, #caae71); /* Gradient background */
+    color: #ffffff; /* Ensure text is readable */
+    font-family: sans-serif;
+    min-height: 100vh; /* Ensure full page coverage */
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.article{
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%; /* Ensure section takes full height */
+}
+
+.article {
     min-height: auto;
     width: 23rem;
-    color: #FFF;
-    font-family: sans-serif;
-    background-color:#221864;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
     padding: 3px;
     border-radius: 15px;
-    /* box-shadow: 2px 4px 10px black; */
     margin: auto;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
-.logo-1{
+.logo-1 {
     margin-left: 30px;
 }
 
-.header{
+.header {
     text-align: center;
     margin-top: 5px;
 }
 
-.head{
+.head {
     font-size: 24px;
     letter-spacing: 1px;
     font-weight: 600;
 }
 
-.Sub-head{
-     margin-top: 10px;
-     font-size: 14px;
+.Sub-head {
+    margin-top: 10px;
+    font-size: 14px;
 }
 
-.inpts{
+.inpts {
     text-align: center;
     margin-top: 15px;
 }
 
-.input-x{
-    border:0;
+.input-x {
+    border: 0;
     outline: 0;
     background: transparent;
-    border: 2px solid rgb(53, 7, 97);
+    border: 2px solid #caae71; /* Light color for border */
     width: 70%;
-    padding-block:10px ;
+    padding-block: 10px;
     border-radius: 10px;
     padding-left: 1rem;
-    color: white;
-    margin:10px;
+    color: #ffffff;
+    margin: 10px;
 }
 
-.input-x::placeholder{
+.input-x::placeholder {
     font-size: 16px;
     padding-left: 10px;
+    color: #ffffff; /* Ensure placeholder is visible */
 }
 
-.rad-btns{
-   margin: 1.2rem;
-   margin-left: 5rem;
+.rad-btns {
+    margin: 1.2rem;
+    margin-left: 5rem;
 }
 
-.signupage{
+.signupage {
     margin-top: 15px;
     text-align: center;
 }
-.signupage span{
+
+.signupage span {
     font-size: small;
 }
 
-.btn-4{
-    color: #FFF;
-    background-color:#22135f;
-    display:block;
+.btn-4 {
+    color: #ffffff;
+    background-color: #caae71; /* Light color for button */
+    display: block;
     text-align: center;
     margin-top: 20px;
     margin-left: 5.5rem;
-    width:50%;
+    width: 50%;
     padding: 10px;
-   border-radius: 5px;
-   transition: all linear 0.1s;
-  
+    border-radius: 5px;
+    transition: all linear 0.1s;
 }
 
-.btn-4:hover{
-    background-color: #04848492;
-    color:#fff;
+.btn-4:hover {
+    background-color: #e6c200; /* Slightly darker shade on hover */
+    color: #2d0808;
 }
 
-.btn{
+.btn {
     margin-bottom: 1rem;
 }
 
-.imgs{
+.imgs {
     width: 80%;
     margin-top: 40px;
 }
 
-.right-part{
+.right-part {
     margin-left: 90px;
 }
 
-.error-message{
-    color: #d41717;
+.error-message {
+    color: #ff4d4d; /* Red for error messages */
     font-size: 0.9rem;
 }
