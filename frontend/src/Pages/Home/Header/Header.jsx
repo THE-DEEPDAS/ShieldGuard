@@ -23,7 +23,7 @@ function Header() {
                   Home
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to="/courses"
                   className={({ isActive }) =>
@@ -52,7 +52,7 @@ function Header() {
                 >
                   Contact Us
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink
                   to="/healthchat"
@@ -77,14 +77,14 @@ function Header() {
           </nav>
           <div className="auth-buttons">
             <NavLink to="/login">
-              <button>Login</button>
+              <button >Login</button>
             </NavLink>
             <NavLink to="/signup">
               <button>Signup</button>
             </NavLink>
-            <NavLink to="/admin/login">
+            {/* <NavLink to="/admin/login">
               <button>Admin</button>
-            </NavLink>
+            </NavLink> */}
           </div>
         </div>
       </header>
