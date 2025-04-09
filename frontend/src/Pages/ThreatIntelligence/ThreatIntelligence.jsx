@@ -12,28 +12,8 @@ const ThreatIntelligence = () => {
   const [error, setError] = useState(null);
   const [status, setStatus] = useState("");
 
-  useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/threat-intelligence`
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        await summarizeAndAnalyzeNews(data.articles);
-      } catch (error) {
-        console.error("Error fetching news:", error);
-        setError("Failed to fetch news. Please try again later.");
-      }
-    };
-
-    fetchNews();
-  }, []);
-
   const summarizeAndAnalyzeNews = async (articles) => {
-    const summarizedNews = [];
+    const summarizedNews = [...news]; // Keep previously processed news
 
     for (const article of articles) {
       try {
@@ -45,6 +25,7 @@ const ThreatIntelligence = () => {
           description: summary,
           threatLevel,
         });
+        summarizedNews.sort((a, b) => b.threatLevel - a.threatLevel); // Sort by threat level in descending order
         setNews([...summarizedNews]);
         setStatus(`Completed processing article: ${article.title}`);
       } catch (error) {
@@ -54,12 +35,33 @@ const ThreatIntelligence = () => {
           description: "Failed to summarize or analyze this article.",
           threatLevel: 0,
         });
+        summarizedNews.sort((a, b) => b.threatLevel - a.threatLevel); // Sort by threat level in descending order
         setNews([...summarizedNews]);
         setStatus(`Failed to process article: ${article.title}`);
       }
-      await new Promise((resolve) => setTimeout(resolve, 30000)); // Wait for 30 seconds
+      await new Promise((resolve) => setTimeout(resolve, 40000)); // Wait for 40 seconds before processing the next article
     }
   };
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/threat-intelligence`
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        summarizeAndAnalyzeNews(data.articles); // Process articles one by one
+      } catch (error) {
+        console.error("Error fetching news:", error);
+        setError("Failed to fetch news. Please try again later.");
+      }
+    };
+
+    fetchNews();
+  }, []);
 
   const summarizeArticle = async (content) => {
     try {
