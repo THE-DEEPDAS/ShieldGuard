@@ -15,6 +15,39 @@
 ## 🌟 Features
 
 - **AI-Driven PTSD Chatbot**: Offers confidential, 24/7 emotional support and therapy for soldiers.
+- **Blockchain-Secure Messaging**: A tamper-proof, end-to-end encrypted communication system leveraging blockchain to ensure secure, real-time intelligence sharing for military operations.
+
+### Blockchain-Secure Messaging Details
+
+- **End-to-End Encryption**:
+
+  - Messages are encrypted using AES-256 encryption for maximum security.
+  - Only the intended sender and receiver can decrypt the messages.
+
+- **Blockchain Integration**:
+
+  - Each message is stored as a block in a blockchain.
+  - The blockchain ensures tamper-proof communication by linking blocks with cryptographic hashes.
+  - Any modification to a message invalidates the blockchain, ensuring data integrity.
+
+- **Real-Time Communication**:
+
+  - Messages are delivered instantly using WebSocket technology.
+  - Users can view their chat history, which is securely stored in the blockchain.
+
+- **User-Friendly Interface**:
+
+  - Chat messages are color-coded for easy differentiation between sent and received messages.
+  - Users can select a recipient from their chat list or manually enter a username to start a new conversation.
+
+- **Impact**:
+  - Prevents interception risks during military operations.
+  - Ensures secure and verifiable communication for critical missions.
+
+---
+
+## 🌟 Other Features
+
 - **Veteran Skill-Sharing Hub**: Enables veterans to upskill, mentor, and monetize their military experience.
 
 ### Veteran Skill-Sharing Hub Details
@@ -82,6 +115,7 @@
 
 - **Frontend**: React.js (Web), React Native (Mobile App prototype)
 - **Backend**: Node.js with Express, Flask & FastAPI for AI integration
+- **Blockchain**: Custom blockchain implementation for secure messaging
 - **AI/ML**: TensorFlow, GeminiPro (fine-tuned for PTSD therapy)
 
 ---
