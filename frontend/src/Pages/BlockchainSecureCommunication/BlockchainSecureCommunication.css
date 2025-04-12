@@ -1,0 +1,42 @@
+body {
+  /* ...existing code from Login.css... */
+}
+
+.main {
+  /* ...existing code from Login.css... */
+}
+
+.container {
+  /* ...existing code from Login.css... */
+}
+
+.para1 {
+  font-size: large;
+  margin-top: 10px;
+}
+
+.para {
+  margin-top: 20px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.features {
+  margin-top: 30px;
+  text-align: left;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.features ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.features li {
+  margin-bottom: 10px;
+}
+
+.img-3 {
+  /* ...existing code from Login.css... */
+}

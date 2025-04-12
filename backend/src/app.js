@@ -39,6 +39,12 @@ app.use("/api/admin", adminRouter);
 import paymentRouter from "./routes/payment.routes.js";
 app.use("/api/payment", paymentRouter);
 
+import messageRouter from "./routes/message.routes.js";
+app.use("/api/message", messageRouter);
+
+import authRouter from "./routes/auth.routes.js";
+app.use("/api/auth", authRouter);
+
 // Ensure collections are created
 import { student } from "./models/student.model.js";
 import { Teacher } from "./models/teacher.model.js";

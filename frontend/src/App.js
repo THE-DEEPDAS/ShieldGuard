@@ -13,6 +13,8 @@ import Signup from "./Pages/Signup/Signup";
 import AdminLogin from "./Pages/Login/AdminLogin";
 import Admin from "./Pages/Components/Admin/Admin";
 import ChatBot from "./components/ChatBot/ChatBot";
+import BlockchainSecureCommunication from "./Pages/BlockchainSecureCommunication/BlockchainSecureCommunication";
+import Messaging from "./Pages/Messaging/Messaging";
 
 // Protected Route Component
 const ProtectedAdminRoute = ({ children }) => {
@@ -44,6 +46,11 @@ function App() {
             </ProtectedAdminRoute>
           }
         />
+        <Route
+          path="/blockchain-secure-communication"
+          element={<BlockchainSecureCommunication />}
+        />
+        <Route path="/messaging" element={<Messaging />} />
       </Routes>
     </Router>
   );

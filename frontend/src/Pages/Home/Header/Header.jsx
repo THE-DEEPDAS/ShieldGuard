@@ -73,11 +73,21 @@ function Header() {
                   Threat Intelligence
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/messaging"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "deactive"
+                  }
+                >
+                  Messaging
+                </NavLink>
+              </li>
             </ul>
           </nav>
           <div className="auth-buttons">
             <NavLink to="/login">
-              <button >Login</button>
+              <button>Login</button>
             </NavLink>
             <NavLink to="/signup">
               <button>Signup</button>

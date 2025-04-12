@@ -10,6 +10,8 @@ import Signup from "./Pages/Signup/Signup";
 import AdminLogin from "./Pages/Login/AdminLogin";
 import ChatBot from "./Pages/ChatBot/ChatBot"; // Ensure correct import path
 import ThreatIntelligence from "./Pages/ThreatIntelligence/ThreatIntelligence"; // Import the new component
+import BlockchainSecureCommunication from "./Pages/BlockchainSecureCommunication/BlockchainSecureCommunication";
+import Messaging from "./Pages/Messaging/Messaging";
 
 import {
   RouterProvider,
@@ -261,6 +263,22 @@ const router = createBrowserRouter(
         element={
           <div className="page-content">
             <ThreatIntelligence />
+          </div>
+        }
+      />
+      <Route
+        path="/blockchain-secure-communication"
+        element={
+          <div className="page-content">
+            <BlockchainSecureCommunication />
+          </div>
+        }
+      />
+      <Route
+        path="/messaging"
+        element={
+          <div className="page-content">
+            <Messaging />
           </div>
         }
       />
