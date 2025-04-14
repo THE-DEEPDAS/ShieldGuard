@@ -98,9 +98,9 @@ studentSchema.methods.generateAccessToken = function () {
         _id: this._id,
         Email: this.Email,
       },
-      process.env.ACCESS_TOKEN_SECRET,
+      process.env.ACCESS_TOKEN_SECRET || "default_access_secret",
       {
-        expiresIn: process.env.ACCESS_TOKEN_EXPIRY,
+        expiresIn: process.env.ACCESS_TOKEN_EXPIRY || "1h",
       }
     );
   } catch (error) {
@@ -116,9 +116,9 @@ studentSchema.methods.generateRefreshToken = function () {
         _id: this._id,
         Email: this.Email,
       },
-      process.env.REFRESH_TOKEN_SECRET,
+      process.env.REFRESH_TOKEN_SECRET || "default_refresh_secret",
       {
-        expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
+        expiresIn: process.env.REFRESH_TOKEN_EXPIRY || "7d",
       }
     );
   } catch (error) {

@@ -26,12 +26,15 @@ const Admin = () => {
   useEffect(() => {
     const getAllMsg = async () => {
       try {
-        const response = await fetch(`/api/admin/messages/all`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/admin/messages/all`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         const data = await response.json();
         setAllMsg(data.data);
@@ -49,7 +52,7 @@ const Admin = () => {
       };
 
       const response = await fetch(
-        `/api/admin/${adminID}/approve/${type}/${ID}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/admin/${adminID}/approve/${type}/${ID}`,
         {
           method: "POST",
           headers: {
@@ -76,12 +79,15 @@ const Admin = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch(`/api/admin/${data}/approve`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/admin/${data}/approve`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch data");

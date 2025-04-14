@@ -100,7 +100,9 @@ const mailVerified = asyncHandler(async (req, res) => {
             <img src="https://cdn-icons-png.flaticon.com/128/4436/4436481.png" alt="Verify Email Icon" style="width: 100px; height: 100px;">
             <h1 style="font-size: 36px; font-weight: bold; padding: 20px;">Email Verified</h1>
             <h4>Your email address was successfully verified.</h4>
-            <button style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; margin: 20px;" onclick="window.location.href = 'http://localhost:5173';">Go Back Home</button>
+            <button style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; margin: 20px;" onclick="window.location.href = '${
+              process.env.FRONTEND_URL || "http://localhost:5173"
+            }';">Go Back Home</button>
         </div>`);
   } catch (error) {
     throw new ApiError(509, "something went wrong while verifying User");

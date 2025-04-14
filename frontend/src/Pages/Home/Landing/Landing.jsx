@@ -39,17 +39,19 @@ function Landing() {
   const teachersList = async (sub) => {
     setLoading(true);
 
-    const response = await fetch(`/api/course/${sub}`, {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/course/${sub}`,
+      {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const data = await response.json();
     setFacList(data.data);
-    console.log(data.data);
     setLoading(false);
   };
 

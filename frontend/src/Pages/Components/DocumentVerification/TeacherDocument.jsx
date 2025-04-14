@@ -15,12 +15,17 @@ const TeacherDocument = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch(`/api/teacher/TeacherDocument/${Data}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/teacher/TeacherDocument/${Data}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -80,10 +85,13 @@ const TeacherDocument = () => {
     });
 
     try {
-      const response = await fetch(`/api/teacher/verification/${Data}`, {
-        method: "POST",
-        body: formDataObj,
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/teacher/verification/${Data}`,
+        {
+          method: "POST",
+          body: formDataObj,
+        }
+      );
 
       const responseData = await response.json();
       console.log("response", responseData);

@@ -47,8 +47,9 @@ const Course = () => {
   useEffect(() => {
     const fetchCourseRequests = async () => {
       try {
-        const response = await axios.get(`/api/admin/${data}/approve/course`);
-        console.log("dtat", response.data.data);
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/admin/${data}/approve/course`
+        );
         setCourseReq(response.data.data);
       } catch (error) {
         console.error("Error fetching course requests:", error);
@@ -58,37 +59,14 @@ const Course = () => {
     fetchCourseRequests();
   }, [data]);
 
-  // const handleAccept = async (id,info) => {
-  //   console.log(id);
-  //   try {
-  //     const response = await fetch(`/api/admin/${data}/approve/course/${id}`, {
-  //       method: 'POST',
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //             Isapproved: true,
-  //              Email:info.Email,
-  //              Firstname:info.enrolledteacher,
-  //        }),
-  //     });
-
-  //     console.log(response);
-
-  //     if (response.ok) {
-  //       setCourseReq(courseReq.filter(req => req._id !== id));
-
-  //     }
-  //   } catch (error) {
-  //     console.error('Error approving course request:', error);
-  //   }
-  // };
   const handleAccept = async (id, info) => {
     console.log(id);
     console.log(info.Email);
     try {
       const response = await axios.post(
-        `/api/admin/${data}/approve/course/${id}`,
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/api/admin/${data}/approve/course/${id}`,
         {
           Isapproved: true,
           email: info.Email,
@@ -113,10 +91,9 @@ const Course = () => {
   };
 
   const handleReject = async (id, info) => {
-    console.log(id, info);
     try {
       const response = await axios.post(
-        `/api/admin/${data}/approve/course/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/admin/${data}/approve/course/${id}`,
         {
           Isapproved: false,
           email: info.Email,

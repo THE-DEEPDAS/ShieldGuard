@@ -10,7 +10,10 @@ const authAdmin = asyncHandler(async (req, _, next) => {
     throw new ApiError(401, "unauthorized req");
   }
 
-  const decodedAccToken = jwt.verify(accToken, process.env.ACCESS_TOKEN_SECRET);
+  const decodedAccToken = jwt.verify(
+    accToken,
+    process.env.ACCESS_TOKEN_SECRET || "default_access_secret"
+  );
 
   const Admin = await admin
     .findById(decodedAccToken?._id)

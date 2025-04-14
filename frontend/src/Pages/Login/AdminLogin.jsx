@@ -49,14 +49,17 @@ export default function AdminLogin() {
 
     try {
       // Send data to backend
-      const response = await fetch(`/api/admin/login`, {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/admin/login`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       const responesData = await response.json();
       setErr(responesData.message);

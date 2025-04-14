@@ -3,6 +3,9 @@ import { useParams, NavLink } from "react-router-dom";
 import Withdrawal from "./Withdrawal";
 import { TbMessage2Star } from "react-icons/tb";
 
+// Change this to switch between local and production
+const baseUrl = import.meta.env.VITE_BACKEND_URL; // or your production URL
+
 function DashboardTeacher() {
   const { ID } = useParams();
   const [data, setdata] = useState([]);
@@ -38,12 +41,16 @@ function DashboardTeacher() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch(`/api/Teacher/TeacherDocument/${ID}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          `${baseUrl}/api/Teacher/TeacherDocument/${ID}`,
+          {
+            method: "GET",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -51,69 +58,87 @@ function DashboardTeacher() {
 
         const user = await response.json();
         setdata(user.data);
-        // console.log(user.data);
       } catch (error) {
         setError(error.message);
+        console.error("Error fetching teacher data:", error);
       }
     };
     getData();
-  }, []);
+  }, [ID]);
 
   useEffect(() => {
     const getData = async () => {
-      const Data = await fetch("/api/teacher/teacherdocuments", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ teacherID: data.Teacherdetails }),
-      });
-      const res = await Data.json();
-      // console.log(res.data);
-      setTeacherDetails(res.data);
+      try {
+        const Data = await fetch(`${baseUrl}/api/teacher/teacherdocuments`, {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ teacherID: data.Teacherdetails }),
+        });
+
+        if (!Data.ok) {
+          throw new Error("Failed to fetch teacher documents");
+        }
+
+        const res = await Data.json();
+        setTeacherDetails(res.data);
+      } catch (error) {
+        setError(error.message);
+        console.error("Error fetching teacher documents:", error);
+      }
     };
 
-    getData();
-  }, [courses]);
+    if (data.Teacherdetails) {
+      getData();
+    }
+  }, [data.Teacherdetails]);
 
   useEffect(() => {
     const getAmount = async () => {
       try {
-        const response = await fetch(`/api/payment/teacher/${ID}/balance`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          `${baseUrl}/api/payment/teacher/${ID}/balance`,
+          {
+            method: "POST",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!response.ok) {
-          throw new Error("Failed to fetch data");
+          throw new Error("Failed to fetch balance");
         }
 
         const user = await response.json();
         setAmount(user.data.newTeacher.Balance);
-        // console.log(user)
       } catch (error) {
-        // setError(error.message)
-        console.log(error);
+        setError(error.message);
+        console.error("Error fetching balance:", error);
       }
     };
     getAmount();
-  }, [amount, popup]);
+  }, [ID, popup]);
 
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const response = await fetch(`/api/course/Teacher/${ID}/enrolled`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          `${baseUrl}/api/course/Teacher/${ID}/enrolled`,
+          {
+            method: "GET",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!response.ok) {
-          throw new Error("Failed to fetch data");
+          throw new Error("Failed to fetch courses");
         }
 
         const res = await response.json();
@@ -121,10 +146,11 @@ function DashboardTeacher() {
         console.log(res.data);
       } catch (error) {
         setError(error.message);
+        console.error("Error fetching courses:", error);
       }
     };
     getCourses();
-  }, []);
+  }, [ID]);
 
   return (
     <>

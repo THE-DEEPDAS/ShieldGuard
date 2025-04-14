@@ -43,7 +43,11 @@ const getkey = asyncHandler(async (req, res) => {
   return res
     .status(200)
     .json(
-      new ApiResponse(200, { key: "simulated_key" }, "simulation key fetched")
+      new ApiResponse(
+        200,
+        { key: process.env.PAYMENT_API_KEY || "simulated_key" },
+        "simulation key fetched"
+      )
     );
 });
 

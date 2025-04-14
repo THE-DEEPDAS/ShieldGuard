@@ -29,7 +29,7 @@ export default function BlockchainSecureCommunication() {
         </div>
         <div className="img-3">
           <img
-            src="/path/to/secure-communication-image.svg"
+            src="./Images/secure-communication-image.svg"
             width={600}
             alt="Secure Communication"
           />

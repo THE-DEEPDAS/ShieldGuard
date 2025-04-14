@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 import "./Messaging.css";
 
-const socket = io("http://localhost:5000");
+const socket = io(import.meta.env.VITE_BACKEND_URL);
 
 export default function Messaging() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,11 +23,14 @@ export default function Messaging() {
 
   const handleSignup = async () => {
     try {
-      const response = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/signup`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        }
+      );
       const data = await response.json();
       if (response.ok) {
         alert("Signup successful! Please log in.");
@@ -41,11 +44,14 @@ export default function Messaging() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        }
+      );
       const data = await response.json();
       if (response.ok) {
         setIsLoggedIn(true);
@@ -60,7 +66,11 @@ export default function Messaging() {
 
   const fetchMessages = async () => {
     try {
-      const response = await fetch(`/api/message/get?username=${username}`);
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/api/message/get?username=${username}`
+      );
       const data = await response.json();
       if (response.ok) {
         setMessages(data.messages);
@@ -90,11 +100,14 @@ export default function Messaging() {
 
   const sendMessage = async () => {
     try {
-      const response = await fetch("/api/message/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ to: receiver, from: username, message }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/message/send`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ to: receiver, from: username, message }),
+        }
+      );
       const data = await response.json();
       if (response.ok) {
         socket.emit("sendMessage", data.message);

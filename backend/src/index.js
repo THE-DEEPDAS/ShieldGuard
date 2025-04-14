@@ -9,7 +9,9 @@ dotenv.config({
 
 const connectDB = async () => {
   try {
-    const connection = await mongoose.connect(process.env.MONGODB_URL);
+    const connection = await mongoose.connect(
+      process.env.MONGODB_URL || "mongodb://localhost:27017/eLearning"
+    );
     console.log("MongoDB connected:", connection.connection.host);
   } catch (error) {
     console.error("MongoDB connection error:", error);

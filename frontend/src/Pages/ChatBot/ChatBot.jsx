@@ -36,7 +36,10 @@ const ChatBot = () => {
     setIsLoading(true);
 
     try {
-      const response = await getChatResponse(updatedMessages);
+      const response = await getChatResponse(
+        updatedMessages,
+        import.meta.env.VITE_BACKEND_URL
+      );
       setMessages((prev) => [
         ...prev,
         {
