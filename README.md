@@ -143,6 +143,7 @@ npm run dev
 ---
 
 ## 👥 Team Members
+Email us for doubts!!
 
 - **Deep Das** — [deepdblm@gmail.com](mailto:deepdblm@gmail.com)
 - **Bodhini Jain** — [jainbodhini05@gmail.com](mailto:jainbodhini05@gmail.com)
