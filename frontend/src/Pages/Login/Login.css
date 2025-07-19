@@ -1,109 +1,390 @@
+/* Military Login Page Styles */
 body {
-    background: linear-gradient(135deg, #2d0808, #caae71); /* Gradient background */
-    color: #ffffff; /* Ensure text is readable */
-    font-family: sans-serif;
-    min-height: 100vh; /* Ensure full page coverage */
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: linear-gradient(135deg, var(--military-primary), var(--military-secondary));
+  color: var(--military-light);
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(202, 174, 113, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+  z-index: -1;
 }
 
 .main {
-    width: 100%;
-    height: 100%; /* Ensure main takes full height */
-    color: #ffffff;
-    display: flex;
-    gap: 10rem;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  color: var(--military-light);
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .main::-webkit-scrollbar {
-    width: 0 !important;
+  width: 0 !important;
 }
 
 .container {
-    min-height: auto;
-    width: 380px;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
-    text-align: center;
-    border-radius: 15px;
+  min-height: auto;
+  width: 420px;
+  background: linear-gradient(135deg, rgba(45, 8, 8, 0.9), rgba(45, 8, 8, 0.8));
+  backdrop-filter: blur(15px);
+  text-align: center;
+  border-radius: 20px;
+  border: 2px solid var(--military-secondary);
+  box-shadow: 0 15px 40px var(--military-shadow);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  animation: militaryFadeIn 0.8s ease-out;
+}
+
+.container::before {
+  content: '🛡️';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: militaryPulse 3s infinite;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(202, 174, 113, 0.05), transparent);
+  pointer-events: none;
 }
 
 .para1 {
-    font-size: large;
-    margin-top: 10px;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--military-secondary);
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+.para1::after {
+  content: '⚔️';
+  margin-left: 10px;
+  font-size: 1.2rem;
+  animation: militaryGlow 2s ease-in-out infinite;
 }
 
 .logo {
-    padding: 15px;
+  padding: 15px;
+  position: relative;
+  z-index: 2;
 }
 
 .para {
-    margin-top: 20px;
-    font-size: 16px;
-    letter-spacing: 1px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: rgba(255, 251, 240, 0.9);
+  position: relative;
+  z-index: 2;
 }
 
 .form {
-    margin-top: 40px;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .input-0 {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border: 2px solid #caae71; /* Light color for border */
-    width: 70%;
-    padding-block: 17px;
-    border-radius: 15px;
-    padding-left: 1rem;
-    color: #ffffff;
+  border: 0;
+  outline: 0;
+  background: rgba(45, 8, 8, 0.7);
+  border: 2px solid var(--military-secondary);
+  width: 80%;
+  padding: 16px 20px;
+  border-radius: 12px;
+  color: var(--military-light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.input-0:focus {
+  border-color: var(--military-accent);
+  box-shadow: 0 0 15px var(--military-glow);
+  transform: translateY(-2px);
 }
 
 .input-0::placeholder {
-    font-size: 16px;
-    padding-left: 20px;
-    color: #ffffff; /* Ensure placeholder is visible */
+  font-size: 1rem;
+  color: rgba(255, 251, 240, 0.6);
+  font-weight: 500;
 }
 
+.input-1,
 .input-2 {
-    margin-top: 20px;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.input-1::before {
+  content: '👤';
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  z-index: 3;
+}
+
+.input-2::before {
+  content: '🔒';
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  z-index: 3;
 }
 
 .btns {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    margin-bottom: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
 .btns-1 {
-    background-color: #caae71; /* Light color for button */
-    padding: 10px;
-    width: 200px;
-    color: #2d0808; /* Dark text for contrast */
-    border-radius: 5px;
-    cursor: pointer;
+  background: linear-gradient(45deg, var(--military-secondary), var(--military-accent));
+  padding: 14px 32px;
+  min-width: 200px;
+  color: var(--military-primary);
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  font-weight: 900;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px var(--military-shadow);
+}
+
+.btns-1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btns-1:hover::before {
+  left: 100%;
 }
 
 .btns-1:hover {
-    background-color: #e6c200; /* Slightly darker shade on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--military-shadow);
+  background: linear-gradient(45deg, var(--military-accent), var(--military-secondary));
+}
+
+.btns-1:active {
+  transform: translateY(-1px);
 }
 
 .radio-btn {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  position: relative;
+  z-index: 2;
 }
 
 .signup-link {
-    margin-top: 20px;
-    font-size: small;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 2;
 }
 
 .signup-link p {
-    color: #ffffff;
+  color: rgba(255, 251, 240, 0.8);
+  margin: 0;
+}
+
+.signup-link .link {
+  color: var(--military-secondary);
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.signup-link .link:hover {
+  color: var(--military-accent);
+  background: rgba(202, 174, 113, 0.1);
+  text-shadow: 0 0 5px var(--military-glow);
+}
+
+.error-message {
+  color: var(--military-danger);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(139, 0, 0, 0.1);
+  border-radius: 6px;
+  border: 1px solid var(--military-danger);
+  animation: militaryFadeIn 0.3s ease-out;
+}
+
+/* Image Section */
+.img-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: militarySlideIn 1s ease-out;
+}
+
+.img-3 img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.4));
+  transition: all 0.3s ease;
+}
+
+.img-3 img:hover {
+  transform: scale(1.02) rotate(1deg);
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.5));
+}
+
+/* Forget Password Link */
+.text-yellow-400 {
+  color: var(--military-secondary) !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.text-yellow-400:hover {
+  color: var(--military-accent) !important;
+  background: rgba(202, 174, 113, 0.1);
+  transform: translateY(-1px);
+  text-shadow: 0 0 5px var(--military-glow);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 400px;
+    padding: 1.5rem;
+  }
+  
+  .input-0 {
+    width: 85%;
+    padding: 14px 18px;
+  }
+  
+  .btns-1 {
+    padding: 12px 28px;
+    min-width: 180px;
+    font-size: 0.9rem;
+  }
+  
+  .para1 {
+    font-size: 1.5rem;
+  }
+  
+  .img-3 img {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+    padding: 1rem;
+  }
+  
+  .input-0 {
+    width: 90%;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .btns-1 {
+    padding: 10px 24px;
+    min-width: 160px;
+    font-size: 0.85rem;
+  }
+  
+  .para1 {
+    font-size: 1.3rem;
+  }
+  
+  .para {
+    font-size: 0.9rem;
+  }
+}
+
+/* Special Military Effects */
+@keyframes militaryAlert {
+  0%, 100% { border-color: var(--military-secondary); }
+  50% { border-color: var(--military-danger); }
+}
+
+.input-0.error {
+  animation: militaryAlert 0.5s ease-in-out 3;
+}
+
+/* Loading State */
+.btns-1.loading {
+  background: linear-gradient(45deg, #666, #888);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btns-1.loading::after {
+  content: '⏳';
+  margin-left: 8px;
+  animation: militaryPulse 1s infinite;
 }

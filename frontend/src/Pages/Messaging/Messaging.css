@@ -1,184 +1,559 @@
+/* Military-themed Messaging Styles */
 .messaging-container {
-  padding: 20px;
-  background: #2d0808;
-  color: #ffffff;
-  max-width: 600px;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--military-primary), rgba(45, 8, 8, 0.9));
+  color: var(--military-light);
+  max-width: 800px;
   margin: 0 auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 15px 40px var(--military-shadow);
+  border: 2px solid var(--military-secondary);
+  position: relative;
+  overflow: hidden;
+  animation: militaryFadeIn 0.8s ease-out;
 }
 
-.group-management {
-  margin-bottom: 20px;
+.messaging-container::before {
+  content: '🔐';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: militaryPulse 3s infinite;
 }
 
-.group-management input {
-  padding: 10px;
-  margin-right: 10px;
-  border: 1px solid #caae71;
-  border-radius: 5px;
-  background: #2d0808;
-  color: #ffffff;
-}
-
-.group-management button {
-  padding: 10px 20px;
-  background: #caae71;
-  border: none;
-  color: #2d0808;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.groups {
-  margin-top: 10px;
-}
-
-.group {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
-
-.group span {
-  cursor: pointer;
-  color: #caae71;
-}
-
-.group button {
-  background: #e74c3c;
-  color: #ffffff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.messages {
-  height: 300px;
-  overflow-y: auto;
-  margin-bottom: 20px;
-  border: 1px solid #caae71;
-  padding: 10px;
-  border-radius: 5px;
-  background: #1a1a1a;
-}
-
-.sent {
-  text-align: right;
-  color: #caae71;
-}
-
-.received {
-  text-align: left;
-  color: #ffffff;
-}
-
-input {
-  display: block;
-  margin: 10px 0;
-  padding: 10px;
+.messaging-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  border: 1px solid #caae71;
-  border-radius: 5px;
-  background: #2d0808;
-  color: #ffffff;
-}
-
-button {
-  padding: 10px 20px;
-  background: #caae71;
-  border: none;
-  color: #2d0808;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.auth-container {
-  padding: 20px;
-  background: #2d0808;
-  color: #ffffff;
-  max-width: 400px;
-  margin: 0 auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-.auth-container input {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  width: 80%;
-  border: 1px solid #caae71;
-  border-radius: 5px;
-  background: #2d0808;
-  color: #ffffff;
-}
-
-.auth-container button {
-  padding: 10px 20px;
-  background: #caae71;
-  border: none;
-  color: #2d0808;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 5px;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(202, 174, 113, 0.05), transparent);
+  pointer-events: none;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--military-secondary);
+  position: relative;
+  z-index: 2;
+}
+
+.header h2 {
+  color: var(--military-secondary);
+  font-size: 2rem;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.header h2::before {
+  content: '📡';
+  margin-right: 10px;
+  animation: militaryGlow 2s ease-in-out infinite;
 }
 
 .signout-button {
-  padding: 10px 20px;
-  background: #e74c3c;
+  padding: 12px 24px;
+  background: linear-gradient(45deg, var(--military-danger), #a00);
   border: none;
-  color: #ffffff;
+  color: var(--military-light);
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--military-shadow);
 }
 
 .signout-button:hover {
-  background: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--military-shadow);
+  background: linear-gradient(45deg, #a00, var(--military-danger));
+}
+
+.group-management {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(45, 8, 8, 0.6);
+  border-radius: 12px;
+  border: 1px solid var(--military-secondary);
+  position: relative;
+  z-index: 2;
+}
+
+.group-management input {
+  padding: 12px 16px;
+  margin-right: 1rem;
+  border: 2px solid var(--military-secondary);
+  border-radius: 8px;
+  background: rgba(45, 8, 8, 0.8);
+  color: var(--military-light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.group-management input:focus {
+  outline: none;
+  border-color: var(--military-accent);
+  box-shadow: 0 0 10px var(--military-glow);
+}
+
+.group-management button {
+  padding: 12px 24px;
+  background: linear-gradient(45deg, var(--military-secondary), var(--military-accent));
+  border: none;
+  color: var(--military-primary);
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.group-management button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--military-shadow);
+}
+
+.groups {
+  margin-top: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  padding: 0.8rem;
+  background: rgba(202, 174, 113, 0.1);
+  border-radius: 8px;
+  border: 1px solid var(--military-secondary);
+  transition: all 0.3s ease;
+}
+
+.group:hover {
+  background: rgba(202, 174, 113, 0.2);
+  transform: translateX(5px);
+}
+
+.group span {
+  cursor: pointer;
+  color: var(--military-secondary);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.group span:hover {
+  color: var(--military-accent);
+  text-shadow: 0 0 5px var(--military-glow);
+}
+
+.group button {
+  background: linear-gradient(45deg, var(--military-danger), #a00);
+  color: var(--military-light);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.group button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px var(--military-shadow);
+}
+
+.messages {
+  height: 350px;
+  overflow-y: auto;
+  margin-bottom: 2rem;
+  border: 2px solid var(--military-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(45, 8, 8, 0.3));
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 2;
+}
+
+.messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: rgba(45, 8, 8, 0.3);
+  border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: var(--military-secondary);
+  border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+  background: var(--military-accent);
+}
+
+.sent {
+  text-align: right;
+  color: var(--military-secondary);
+  margin-bottom: 1rem;
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(135deg, var(--military-secondary), var(--military-accent));
+  color: var(--military-primary);
+  border-radius: 15px;
+  border-bottom-right-radius: 5px;
+  max-width: 70%;
+  margin-left: auto;
+  font-weight: 600;
+  box-shadow: 0 4px 15px var(--military-shadow);
+  animation: militarySlideIn 0.3s ease-out;
+}
+
+.received {
+  text-align: left;
+  color: var(--military-light);
+  margin-bottom: 1rem;
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(135deg, rgba(45, 8, 8, 0.8), rgba(45, 8, 8, 0.6));
+  border: 1px solid var(--military-secondary);
+  border-radius: 15px;
+  border-bottom-left-radius: 5px;
+  max-width: 70%;
+  margin-right: auto;
+  box-shadow: 0 4px 15px var(--military-shadow);
+  animation: militarySlideIn 0.3s ease-out;
+}
+
+input {
+  display: block;
+  margin: 1rem 0;
+  padding: 12px 16px;
+  width: 100%;
+  border: 2px solid var(--military-secondary);
+  border-radius: 8px;
+  background: rgba(45, 8, 8, 0.8);
+  color: var(--military-light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--military-accent);
+  box-shadow: 0 0 15px var(--military-glow);
+  transform: translateY(-2px);
+}
+
+input::placeholder {
+  color: rgba(255, 251, 240, 0.6);
+  font-style: italic;
+}
+
+button {
+  padding: 12px 24px;
+  background: linear-gradient(45deg, var(--military-secondary), var(--military-accent));
+  border: none;
+  color: var(--military-primary);
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--military-shadow);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--military-shadow);
+}
+
+.auth-container {
+  padding: 2.5rem;
+  background: linear-gradient(135deg, var(--military-primary), rgba(45, 8, 8, 0.9));
+  color: var(--military-light);
+  max-width: 450px;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px var(--military-shadow);
+  border: 2px solid var(--military-secondary);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: militaryFadeIn 0.8s ease-out;
+}
+
+.auth-container::before {
+  content: '🔐';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: militaryPulse 3s infinite;
+}
+
+.auth-container h2 {
+  color: var(--military-secondary);
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.auth-container h2::before {
+  content: '🛡️';
+  margin-right: 10px;
+  animation: militaryGlow 2s ease-in-out infinite;
+}
+
+.auth-container input {
+  display: block;
+  margin: 1.5rem auto;
+  padding: 14px 18px;
+  width: 85%;
+  border: 2px solid var(--military-secondary);
+  border-radius: 10px;
+  background: rgba(45, 8, 8, 0.8);
+  color: var(--military-light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.auth-container input:focus {
+  border-color: var(--military-accent);
+  box-shadow: 0 0 15px var(--military-glow);
+  transform: translateY(-2px);
+}
+
+.auth-container button {
+  padding: 14px 28px;
+  background: linear-gradient(45deg, var(--military-secondary), var(--military-accent));
+  border: none;
+  color: var(--military-primary);
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  min-width: 120px;
 }
 
 .chat-list {
-  margin-bottom: 20px;
-  background: #1a1a1a;
-  padding: 10px;
-  border-radius: 5px;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(45, 8, 8, 0.3));
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--military-secondary);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 2;
+}
+
+.chat-list h3 {
+  color: var(--military-secondary);
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.chat-list h3::before {
+  content: '👥';
+  margin-right: 8px;
 }
 
 .chat-user {
-  padding: 10px;
+  padding: 12px 16px;
   cursor: pointer;
-  color: #ffffff;
-  border-bottom: 1px solid #caae71;
+  color: var(--military-light);
+  border-bottom: 1px solid rgba(202, 174, 113, 0.3);
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .chat-user:hover {
-  background: #caae71;
-  color: #2d0808;
+  background: linear-gradient(135deg, var(--military-secondary), var(--military-accent));
+  color: var(--military-primary);
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px var(--military-shadow);
 }
 
 .chat-user.active {
-  background: #caae71;
-  color: #2d0808;
+  background: linear-gradient(135deg, var(--military-secondary), var(--military-accent));
+  color: var(--military-primary);
+  font-weight: bold;
+  box-shadow: 0 4px 15px var(--military-shadow);
+}
+
+.chat-user::before {
+  content: '💬';
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+.chat-user.active::before {
+  opacity: 1;
 }
 
 .receiver-input {
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .receiver-input input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #caae71;
-  border-radius: 5px;
-  background: #2d0808;
-  color: #ffffff;
+  padding: 14px 18px;
+  border: 2px solid var(--military-secondary);
+  border-radius: 10px;
+  background: rgba(45, 8, 8, 0.8);
+  color: var(--military-light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.receiver-input input:focus {
+  border-color: var(--military-accent);
+  box-shadow: 0 0 15px var(--military-glow);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .messaging-container,
+  .auth-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .messages {
+    height: 250px;
+    padding: 1rem;
+  }
+  
+  .sent,
+  .received {
+    max-width: 85%;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .group-management {
+    padding: 1rem;
+  }
+  
+  .group-management input {
+    margin-bottom: 1rem;
+    margin-right: 0;
+    width: 100%;
+  }
+  
+  .group-management button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .messaging-container,
+  .auth-container {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+  
+  .header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .messages {
+    height: 200px;
+    padding: 0.8rem;
+  }
+  
+  .sent,
+  .received {
+    max-width: 90%;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  input,
+  button {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .auth-container h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Security Indicator */
+.security-indicator {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--military-success);
+  color: var(--military-light);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: militaryGlow 2s ease-in-out infinite;
+}
+
+.security-indicator::before {
+  content: '🔒';
+  margin-right: 4px;
 }

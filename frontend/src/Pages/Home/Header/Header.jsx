@@ -8,7 +8,7 @@ function Header() {
       <header className="navbar">
         <div className="navbar-container">
           <NavLink to="/" className="logo">
-            <img src={Logo} alt="logo" />
+            <img src={Logo} alt="ShieldGuard Logo" className="military-icon" />
             <h1 className="text-2xl text-black font-bold">ShieldGuard</h1>
           </NavLink>
           <nav className="link-nav">
@@ -20,39 +20,9 @@ function Header() {
                     isActive ? "active" : "deactive"
                   }
                 >
-                  Home
+                  🏠 Home
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink
-                  to="/courses"
-                  className={({ isActive }) =>
-                    isActive ? "active" : "deactive"
-                  }
-                >
-                  Courses
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/about"
-                  className={({ isActive }) =>
-                    isActive ? "active" : "deactive"
-                  }
-                >
-                  About
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/contact"
-                  className={({ isActive }) =>
-                    isActive ? "active" : "deactive"
-                  }
-                >
-                  Contact Us
-                </NavLink>
-              </li> */}
               <li>
                 <NavLink
                   to="/healthchat"
@@ -60,7 +30,7 @@ function Header() {
                     isActive ? "active font-bold text-yellow-400" : "deactive"
                   }
                 >
-                  Health Chat
+                  🏥 Health Chat
                 </NavLink>
               </li>
               <li>
@@ -70,7 +40,7 @@ function Header() {
                     isActive ? "active" : "deactive"
                   }
                 >
-                  Threat Intelligence
+                  🎯 Threat Intel
                 </NavLink>
               </li>
               <li>
@@ -80,26 +50,22 @@ function Header() {
                     isActive ? "active" : "deactive"
                   }
                 >
-                  Messaging
+                  📡 Secure Comms
                 </NavLink>
               </li>
             </ul>
           </nav>
           <div className="auth-buttons">
             <NavLink to="/login">
-              <button>Login</button>
+              <button className="military-button">🔐 Login</button>
             </NavLink>
             <NavLink to="/signup">
-              <button>Signup</button>
+              <button className="military-button">📝 Signup</button>
             </NavLink>
-            {/* <NavLink to="/admin/login">
-              <button>Admin</button>
-            </NavLink> */}
           </div>
         </div>
       </header>
-      <div className="content-spacing"></div>{" "}
-      {/* Add spacing below the navbar */}
+      <div className="content-spacing"></div>
     </>
   );
 }

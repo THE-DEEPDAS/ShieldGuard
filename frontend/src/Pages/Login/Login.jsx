@@ -12,12 +12,14 @@ export default function Login() {
   const [errors, setErrors] = useState({});
   const [userType, setUserType] = useState("");
   const [err, setErr] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     // Client-side validation
     const newErrors = {};
@@ -32,9 +34,13 @@ export default function Login() {
       newErrors.password = "Password is required";
     }
 
+    if (!userType) {
+      newErrors.userType = "Please select user type";
+    }
+
     if (Object.keys(newErrors).length > 0) {
-      // Update the errors state and prevent form submission
       setErrors(newErrors);
+      setIsLoading(false);
       return;
     }
 
@@ -65,9 +71,7 @@ export default function Login() {
 
       // Handle response
       if (response.ok) {
-        // Authentication successful, you can redirect or do something else
         console.log("Login successful");
-        console.log(responesData.data.user.Isapproved);
 
         if (responesData.data.user.Isapproved === "pending") {
           if (
@@ -95,14 +99,11 @@ export default function Login() {
             navigate(`/rejected/${userType}/${userid}`);
           }
         } else {
-          setErr("You are ban from our platform!");
+          setErr("Access denied - Contact command for clearance!");
         }
       } else if (response.status === 401) {
-        // Incorrect password
         setErrors({ password: responesData.message || "Incorrect password" });
       } else if (response.status === 403) {
-        // Account locked, disabled, or other authentication issues
-
         setErrors({ general: responesData.message || "Login failed" });
       } else if (response.status === 400) {
         setErrors({ general: responesData.message || "User does not exist" });
@@ -111,11 +112,12 @@ export default function Login() {
           general: responesData.message || '"Email" must be a valid email',
         });
       } else {
-        // Other unexpected errors
         setErrors({ general: "An unexpected error occurred" });
       }
     } catch (error) {
-      setErrors(error.message);
+      setErrors({ general: error.message });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -123,18 +125,13 @@ export default function Login() {
     <>
       <Header />
       <section className="main">
-        <div className="container">
-          {/* <div className="logo">
-          <img src="" alt="" />
-          <h1 className="head">Logo</h1>
-        </div> */}
-          {/* headings */}
+        <div className="container military-fade-in">
           <div className="para1">
-            <h2> WELCOME BACK!</h2>
+            <h2>🛡️ SECURE ACCESS</h2>
           </div>
 
           <div className="para">
-            <h5> Please Log Into Your Account.</h5>
+            <h5>🔐 Please authenticate your credentials</h5>
           </div>
 
           <div className="form">
@@ -142,40 +139,43 @@ export default function Login() {
               <div className="input-1">
                 <input
                   type="text"
-                  placeholder="Email Address"
-                  className="input-0"
+                  placeholder="📧 Military Email Address"
+                  className={`input-0 military-input ${errors.email ? 'error' : ''}`}
                   value={Email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 {errors.email && (
-                  <div className="error-message">{errors.email}</div>
+                  <div className="error-message">⚠️ {errors.email}</div>
                 )}
               </div>
               <div className="input-2">
                 <input
                   type="password"
-                  placeholder="Password"
-                  className="input-0"
+                  placeholder="🔒 Security Password"
+                  className={`input-0 military-input ${errors.password ? 'error' : ''}`}
                   value={Password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 {errors.password && (
-                  <div className="error-message">{errors.password}</div>
+                  <div className="error-message">⚠️ {errors.password}</div>
                 )}
               </div>
 
               {/* radio buttons */}
               <div className="radio-btn">
                 <Radiobtn userType={userType} setUserType={setUserType} />
+                {errors.userType && (
+                  <div className="error-message">⚠️ {errors.userType}</div>
+                )}
               </div>
 
               <div className="signup-link">
-                <span>Don't have an account? </span>
+                <span>🆕 New to the system? </span>
                 <NavLink
                   to="/signup"
-                  className="link text-yellow-400 text-semibold text-md "
+                  className="link text-yellow-400 text-semibold text-md"
                 >
-                  signup
+                  Register Here
                 </NavLink>
               </div>
 
@@ -183,26 +183,27 @@ export default function Login() {
                 className="text-yellow-400 text-semibold pt-3 cursor-pointer"
                 onClick={() => navigate("/forgetpassword")}
               >
-                Forget Password?
+                🔑 Forgot Access Code?
               </div>
 
               {/* btns */}
               <div className="btns">
-                <button type="submit" className="btns-1">
-                  Log In
+                <button 
+                  type="submit" 
+                  className={`btns-1 military-button ${isLoading ? 'loading' : ''}`}
+                  disabled={isLoading}
+                >
+                  {isLoading ? '🔄 Authenticating...' : '🚀 Access System'}
                 </button>
               </div>
-              {err != "" && <p className="text-red-400 text-sm">{err}</p>}
-              {/* {errors.general && (
-              <div className="error-message">{errors.general}</div>
-            )} */}
+              {err != "" && <p className="error-message">⚠️ {err}</p>}
             </form>
           </div>
         </div>
 
         {/* image */}
-        <div className="img-3">
-          <img src={HR} width={600} alt="" />
+        <div className="img-3 military-slide-in">
+          <img src={HR} width={600} alt="Military Personnel" className="military-icon" />
         </div>
       </section>
     </>

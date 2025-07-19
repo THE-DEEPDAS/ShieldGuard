@@ -14,12 +14,14 @@ const Signup = () => {
   const [errors, setErrors] = useState({});
   const [userType, setUserType] = useState("");
   const [err, setErr] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     // Client-side validation
     const newErrors = {};
@@ -46,9 +48,13 @@ const Signup = () => {
         "Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.";
     }
 
+    if (!userType) {
+      newErrors.userType = "Please select user type";
+    }
+
     if (Object.keys(newErrors).length > 0) {
-      // Update the errors state and prevent form submission
       setErrors(newErrors);
+      setIsLoading(false);
       return;
     }
 
@@ -61,8 +67,7 @@ const Signup = () => {
     };
 
     try {
-      // Send data to backend (you need to implement this part)
-      const response = await fetch(`/api/${userType}/signup`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/${userType}/signup`, {
         method: "POST",
         mode: "cors",
         credentials: "include",
@@ -72,24 +77,21 @@ const Signup = () => {
         body: JSON.stringify(data),
       });
 
-      // Handle response
       const responseData = await response.json();
-
       setErr(responseData.message);
 
       if (response.ok) {
-        // Registration successful, you can redirect or do something else
         console.log("Registration successful");
         navigate("/varifyEmail");
       } else if (response.status === 400) {
-        // Handle specific validation errors returned by the server
         setErrors(responseData.errors || {});
       } else {
-        // Other status codes (e.g., 500 Internal Server Error)
         console.error("Registration failed with status code:", response.status);
       }
     } catch (error) {
-      setErrors(error.message);
+      setErrors({ general: error.message });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -97,93 +99,95 @@ const Signup = () => {
     <>
       <Header />
       <div className="section">
-        <article className="article">
-          {/* <div className="logo-1">
-          <img src="" alt="" />
-          <h4 className="logo-head">logo</h4>
-        </div> */}
+        <article className="article military-fade-in">
           <div className="header">
-            <h3 className="head">WELCOME</h3>
-            <h4 className="Sub-head">join us today !!</h4>
+            <h3 className="head">🎖️ ENLIST NOW</h3>
+            <h4 className="Sub-head">🚀 Join the Elite Defense Force!</h4>
           </div>
 
           <div className="inpts">
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
-                className="input-x input-4"
-                placeholder="Firstname"
+                className={`input-x input-4 military-input ${errors.firstname ? 'invalid' : ''}`}
+                placeholder="👤 First Name"
                 value={Firstname}
                 onChange={(e) => setFirstName(e.target.value)}
               />
               {errors.firstname && (
-                <div className="error-message">{errors.firstname}</div>
+                <div className="error-message">⚠️ {errors.firstname}</div>
               )}
 
               <input
                 type="text"
-                className="input-x input-5"
-                placeholder="Lastname"
+                className={`input-x input-5 military-input ${errors.lastname ? 'invalid' : ''}`}
+                placeholder="👥 Last Name"
                 value={Lastname}
                 onChange={(e) => setLastName(e.target.value)}
               />
               {errors.lastname && (
-                <div className="error-message">{errors.lastname}</div>
+                <div className="error-message">⚠️ {errors.lastname}</div>
               )}
 
               <input
                 type="text"
-                className="input-x input-6"
-                placeholder="Email"
+                className={`input-x input-6 military-input ${errors.email ? 'invalid' : ''}`}
+                placeholder="📧 Military Email"
                 value={Email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               {errors.email && (
-                <div className="error-message">{errors.email}</div>
+                <div className="error-message">⚠️ {errors.email}</div>
               )}
 
               <input
                 type="password"
-                className="input-x input-7"
-                placeholder="Password"
+                className={`input-x input-7 military-input ${errors.password ? 'invalid' : ''}`}
+                placeholder="🔒 Security Password"
                 value={Password}
                 onChange={(e) => setPassword(e.target.value)}
               />
               {errors.password && (
-                <div className="error-message">{errors.password}</div>
+                <div className="error-message">⚠️ {errors.password}</div>
               )}
 
               <div className="rad-btns">
                 <Radiobtn userType={userType} setUserType={setUserType} />
+                {errors.userType && (
+                  <div className="error-message">⚠️ {errors.userType}</div>
+                )}
               </div>
 
               <div className="signupage">
-                <span>Already have an account? </span>
+                <span>🔐 Already have clearance? </span>
                 <NavLink
                   to="/Login"
-                  style={{ color: "green" }}
                   className="link"
                 >
-                  login
+                  Access System
                 </NavLink>
               </div>
               <div className="btn">
-                <button type="submit" className="btn-4">
-                  Signup
+                <button 
+                  type="submit" 
+                  className={`btn-4 military-button ${isLoading ? 'loading' : ''}`}
+                  disabled={isLoading}
+                >
+                  {isLoading ? '🔄 Processing...' : '🚀 Enlist Now'}
                 </button>
               </div>
             </form>
-            {err && <div className="error-message">{err}</div>}
+            {err && <div className="error-message">⚠️ {err}</div>}
           </div>
         </article>
 
-        <div className="right-part">
-          <img src={Images} alt="" className="imgs" />
+        <div className="right-part military-slide-in">
+          <img src={Images} alt="Military Registration" className="imgs military-icon" />
         </div>
       </div>
       <p className="text-sm text-red-400 absolute bottom-3 left-3">
-        * Password must be at least 8 characters long and include an uppercase
-        letter, a lowercase letter, a number, and a special character.
+        🔒 * Password must be at least 8 characters long and include an uppercase
+        letter, a lowercase letter, a number, and a special character for maximum security.
       </p>
     </>
   );

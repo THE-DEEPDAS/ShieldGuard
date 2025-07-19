@@ -1,123 +1,395 @@
+/* Military Signup Page Styles */
 body {
-    background: linear-gradient(135deg, #2d0808, #caae71); /* Gradient background */
-    color: #ffffff; /* Ensure text is readable */
-    font-family: sans-serif;
-    min-height: 100vh; /* Ensure full page coverage */
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: linear-gradient(135deg, var(--military-primary), var(--military-secondary));
+  color: var(--military-light);
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(202, 174, 113, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+  z-index: -1;
 }
 
 .section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%; /* Ensure section takes full height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 .article {
-    min-height: auto;
-    width: 23rem;
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
-    padding: 3px;
-    border-radius: 15px;
-    margin: auto;
-    margin-top: 20px;
+  min-height: auto;
+  width: 28rem;
+  max-width: 90vw;
+  color: var(--military-light);
+  background: linear-gradient(135deg, rgba(45, 8, 8, 0.9), rgba(45, 8, 8, 0.8));
+  backdrop-filter: blur(15px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 2px solid var(--military-secondary);
+  box-shadow: 0 15px 40px var(--military-shadow);
+  position: relative;
+  overflow: hidden;
+  animation: militaryFadeIn 0.8s ease-out;
+}
+
+.article::before {
+  content: '🎖️';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: militaryPulse 3s infinite;
+}
+
+.article::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(202, 174, 113, 0.05), transparent);
+  pointer-events: none;
 }
 
 .logo-1 {
-    margin-left: 30px;
+  margin-left: 30px;
+  position: relative;
+  z-index: 2;
 }
 
 .header {
-    text-align: center;
-    margin-top: 5px;
+  text-align: center;
+  margin: 1.5rem 0;
+  position: relative;
+  z-index: 2;
 }
 
 .head {
-    font-size: 24px;
-    letter-spacing: 1px;
-    font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 1.5px;
+  font-weight: 900;
+  color: var(--military-secondary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.head::after {
+  content: '⚔️';
+  margin-left: 10px;
+  font-size: 1.5rem;
+  animation: militaryGlow 2s ease-in-out infinite;
 }
 
 .Sub-head {
-    margin-top: 10px;
-    font-size: 14px;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: rgba(255, 251, 240, 0.9);
+  letter-spacing: 0.5px;
 }
 
 .inpts {
-    text-align: center;
-    margin-top: 15px;
+  text-align: center;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .input-x {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border: 2px solid #caae71; /* Light color for border */
-    width: 70%;
-    padding-block: 10px;
-    border-radius: 10px;
-    padding-left: 1rem;
-    color: #ffffff;
-    margin: 10px;
+  border: 0;
+  outline: 0;
+  background: rgba(45, 8, 8, 0.7);
+  border: 2px solid var(--military-secondary);
+  width: 85%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  color: var(--military-light);
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.input-x:focus {
+  border-color: var(--military-accent);
+  box-shadow: 0 0 15px var(--military-glow);
+  transform: translateY(-2px);
 }
 
 .input-x::placeholder {
-    font-size: 16px;
-    padding-left: 10px;
-    color: #ffffff; /* Ensure placeholder is visible */
+  font-size: 1rem;
+  color: rgba(255, 251, 240, 0.6);
+  font-weight: 500;
 }
 
+/* Input Icons */
+.input-4::before { content: '👤'; }
+.input-5::before { content: '👥'; }
+.input-6::before { content: '📧'; }
+.input-7::before { content: '🔒'; }
+
 .rad-btns {
-    margin: 1.2rem;
-    margin-left: 5rem;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 .signupage {
-    margin-top: 15px;
-    text-align: center;
+  margin: 1.5rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .signupage span {
-    font-size: small;
+  font-size: 0.9rem;
+  color: rgba(255, 251, 240, 0.8);
 }
 
-.btn-4 {
-    color: #ffffff;
-    background-color: #caae71; /* Light color for button */
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    margin-left: 5.5rem;
-    width: 50%;
-    padding: 10px;
-    border-radius: 5px;
-    transition: all linear 0.1s;
+.signupage .link {
+  color: var(--military-secondary);
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
 }
 
-.btn-4:hover {
-    background-color: #e6c200; /* Slightly darker shade on hover */
-    color: #2d0808;
+.signupage .link:hover {
+  color: var(--military-accent);
+  background: rgba(202, 174, 113, 0.1);
+  text-shadow: 0 0 5px var(--military-glow);
 }
 
 .btn {
-    margin-bottom: 1rem;
+  margin: 2rem 0 1rem 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
-.imgs {
-    width: 80%;
-    margin-top: 40px;
+.btn-4 {
+  background: linear-gradient(45deg, var(--military-secondary), var(--military-accent));
+  color: var(--military-primary);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px var(--military-shadow);
+}
+
+.btn-4::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-4:hover::before {
+  left: 100%;
+}
+
+.btn-4:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--military-shadow);
+  background: linear-gradient(45deg, var(--military-accent), var(--military-secondary));
+}
+
+.btn-4:active {
+  transform: translateY(-1px);
 }
 
 .right-part {
-    margin-left: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: militarySlideIn 1s ease-out;
+}
+
+.imgs {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.4));
+  transition: all 0.3s ease;
+}
+
+.imgs:hover {
+  transform: scale(1.02) rotate(-1deg);
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.5));
 }
 
 .error-message {
-    color: #ff4d4d; /* Red for error messages */
+  color: var(--military-danger);
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: rgba(139, 0, 0, 0.1);
+  border-radius: 6px;
+  border: 1px solid var(--military-danger);
+  animation: militaryFadeIn 0.3s ease-out;
+  text-align: center;
+}
+
+/* Password Requirements Notice */
+.text-red-400 {
+  color: var(--military-danger) !important;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  background: rgba(139, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--military-danger);
+  margin: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .article {
+    width: 90%;
+    max-width: 400px;
+    padding: 2rem;
+  }
+  
+  .input-x {
+    width: 90%;
+    padding: 12px 16px;
+  }
+  
+  .btn-4 {
+    padding: 12px 28px;
+    min-width: 180px;
     font-size: 0.9rem;
+  }
+  
+  .head {
+    font-size: 1.7rem;
+  }
+  
+  .imgs {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .article {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  .input-x {
+    width: 95%;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .btn-4 {
+    padding: 10px 24px;
+    min-width: 160px;
+    font-size: 0.85rem;
+  }
+  
+  .head {
+    font-size: 1.5rem;
+  }
+  
+  .Sub-head {
+    font-size: 0.9rem;
+  }
+  
+  .text-red-400 {
+    font-size: 0.75rem;
+    padding: 0.8rem;
+    margin: 0.5rem;
+  }
+}
+
+/* Special Military Effects */
+@keyframes militaryAlert {
+  0%, 100% { border-color: var(--military-secondary); }
+  50% { border-color: var(--military-danger); }
+}
+
+.input-x.error {
+  animation: militaryAlert 0.5s ease-in-out 3;
+}
+
+/* Loading State */
+.btn-4.loading {
+  background: linear-gradient(45deg, #666, #888);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-4.loading::after {
+  content: '⏳';
+  margin-left: 8px;
+  animation: militaryPulse 1s infinite;
+}
+
+/* Form Validation States */
+.input-x.valid {
+  border-color: var(--military-success);
+  box-shadow: 0 0 10px rgba(74, 93, 35, 0.4);
+}
+
+.input-x.invalid {
+  border-color: var(--military-danger);
+  box-shadow: 0 0 10px rgba(139, 0, 0, 0.4);
+}
+
+/* Success Message */
+.success-message {
+  color: var(--military-success);
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: rgba(74, 93, 35, 0.1);
+  border-radius: 6px;
+  border: 1px solid var(--military-success);
+  animation: militaryFadeIn 0.3s ease-out;
+  text-align: center;
 }

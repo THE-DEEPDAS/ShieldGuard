@@ -22,7 +22,6 @@ function Landing() {
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    // console.log('working')
     navigate(`/Search/${subject}`);
   };
 
@@ -58,82 +57,79 @@ function Landing() {
   return (
     <>
       <Header />
-      {/* Top Section */}
-      <div className="top">
-        <div className="left">
+      {/* Top Section - Hero */}
+      <div className="top military-fade-in">
+        <div className="left military-slide-in">
           <h1>
-            Empowering Minds, Inspiring Futures: <br />
-            Your Gateway to Online Learning with{" "}
-            <span className="font-semibold text-amber-400 font-serif text-5xl">
+            Empowering Defense, Securing Futures: <br />
+            Your Gateway to Military Excellence with{" "}
+            <span className="font-semibold text-amber-400 font-serif text-5xl military-glow">
               ShieldGuard
             </span>
           </h1>
-          {/* Search bar has been removed from here */}
         </div>
         <div className="right">
-          <img src={Classroom} width={500} alt="" />
+          <img src={Classroom} width={500} alt="Military Training" className="military-icon" />
         </div>
       </div>
 
       {/* Features */}
-      <div className="features ">
-        <p>Why You Choose Us</p>
-        {/* <hr className="underLine"/> */}
+      <div className="features military-fade-in">
+        <div className="military-section-header">
+          <p>🎖️ Why Choose Our Defense Platform</p>
+        </div>
         <div className="fets2">
-          <div className="fet cursor-pointer mb-5" onClick={AA}>
-            <img
-              src="https://www.figma.com/file/6b4R8evBkii6mI53IA4vSS/image/622a85ea75414daadf6055613c074c5280b95444"
-              alt=""
-            />
-            <h4>Expert Mentor</h4>
+          <div className="fet military-card military-pulse" onClick={AA}>
+            <div className="military-icon">
+              🎖️
+            </div>
+            <h4>Elite Military Mentors</h4>
             <p>
-              Our expert mentors are the cornerstone of our educational
-              approach. With a wealth of knowledge they support our students on
-              their journey to success.
+              Our expert military mentors are battle-tested professionals with extensive field experience. 
+              They provide strategic guidance and tactical knowledge to support our personnel on their mission to excellence.
             </p>
           </div>
 
-          <div className="fet cursor-pointer mb-5" onClick={BB}>
-            <img
-              src="https://www.figma.com/file/6b4R8evBkii6mI53IA4vSS/image/1478ee1b2a35123ded761b65c3ed2ceaece0d20f"
-              alt=""
-            />
-            <h4>High Quality Live Class</h4>
+          <div className="fet military-card military-pulse" onClick={BB}>
+            <div className="military-icon">
+              🎯
+            </div>
+            <h4>High-Security Training Operations</h4>
             <p>
-              We deliver high-quality live classes to our students, providing
-              interactive learning experiences led by experienced instructors.{" "}
+              We deliver classified-level training operations to our personnel, providing secure interactive 
+              learning experiences led by experienced military instructors and defense specialists.
             </p>
           </div>
 
           <NavLink to="/contact">
-            <div className="fet cursor-pointer">
-              <img
-                src="https://www.figma.com/file/6b4R8evBkii6mI53IA4vSS/image/c412120e39b2095486c76978d4cd0bea88fd883b"
-                alt=""
-              />
-              <h4>24/7 Live Support</h4>
+            <div className="fet military-card military-pulse">
+              <div className="military-icon">
+                📡
+              </div>
+              <h4>24/7 Command Support</h4>
               <p>
-                We offer our students 24/7 live support. Whether it's a question
-                or a challenge at midnight, our dedicated team is here to
-                provide guidance, assistance.
+                We offer our personnel 24/7 command support. Whether it's a tactical question or operational 
+                challenge, our dedicated command team provides immediate guidance and assistance.
               </p>
             </div>
           </NavLink>
         </div>
+        
         {LClass && (
-          <div className="flex items-center justify-center">
-            <div className="flex gap-5 items-center my-5">
+          <div className="flex items-center justify-center military-fade-in">
+            <div className="flex gap-5 items-center my-5 military-card">
               <img
                 src="https://lh3.googleusercontent.com/kq1PrZ8Kh1Pomlbfq4JM1Gx4z-oVr3HG9TEKzwZfqPLP3TdVYrx0QrIbpR-NmMwgDzhNTgi3FzuzseMpjzkfNrdHK5AzWGZl_RtKB80S-GZmWOQciR9s=w1296-v1-e30"
-                alt=""
+                alt="Military Training"
                 width={300}
+                className="military-icon"
               />
               <div className="text-white flex flex-col items-center">
-                <h1>High Quality Live Class</h1>
+                <h1 className="text-military-secondary">🎯 High-Security Training Operations</h1>
                 <p>
-                  We deliver high-quality live classes to our students,
-                  <br /> providing interactive learning experiences <br />
-                  led by experienced instructors.
+                  We deliver classified-level training operations to our personnel,
+                  <br /> providing secure interactive learning experiences <br />
+                  led by experienced military instructors.
                 </p>
               </div>
             </div>
@@ -141,68 +137,67 @@ function Landing() {
         )}
 
         {EMentor && (
-          <div className="flex items-center justify-center mt-7 gap-5">
-            <div className="bg-[#0E3A59] m-2 p-5 rounded-3xl overflow-hidden flex flex-col items-center justify-center">
+          <div className="flex items-center justify-center mt-7 gap-5 military-fade-in">
+            <div className="military-card military-glow overflow-hidden flex flex-col items-center justify-center">
               <img
-                className=" rounded-full"
+                className="rounded-full military-icon"
                 src="https://media.istockphoto.com/id/1310210662/photo/portrait-of-indian-woman-as-a-teacher-in-sari-standing-isolated-over-white-background-stock.jpg?s=612x612&w=0&k=20&c=EMI42nCFpak1c4JSFvwfN0Qllyxt19dlihYEXAdnCXY="
-                alt=""
+                alt="Colonel Dina Sharma"
                 width={200}
               />
-
               <div className="flex items-center justify-start">
-                <CgProfile />
-                <p>Prof. Dina Sharma</p>
+                <CgProfile className="text-military-secondary" />
+                <p>🎖️ Colonel Dina Sharma</p>
               </div>
               <div className="flex items-center">
-                <FaSchool />
-                <p>Galaxy University</p>
+                <FaSchool className="text-military-secondary" />
+                <p>🏛️ Defense Academy</p>
               </div>
               <div className="flex items-center">
-                <IoSchoolSharp />
-                <p>Ph.D. in Astrophysics</p>
+                <IoSchoolSharp className="text-military-secondary" />
+                <p>🎓 Strategic Operations</p>
               </div>
             </div>
-            <div className="bg-[#0E3A59] m-2 p-5 rounded-3xl overflow-hidden flex flex-col items-center justify-center">
+            
+            <div className="military-card military-glow overflow-hidden flex flex-col items-center justify-center">
               <img
-                className=" rounded-full"
+                className="rounded-full military-icon"
                 src="https://media.istockphoto.com/id/1324558913/photo/confident-young-man-in-casual-green-shirt-looking-away-standing-with-crossed-arms-isolated-on.jpg?s=612x612&w=0&k=20&c=NOrKRrUuxvePKijL9sFBHlDwHESv7Van68-hoS-_4hQ="
-                alt=""
+                alt="Major Anand Mishra"
                 width={200}
               />
-
               <div className="flex items-center justify-start">
-                <CgProfile />
-                <p>Dr. Anand Mishra</p>
+                <CgProfile className="text-military-secondary" />
+                <p>🎖️ Major Anand Mishra</p>
               </div>
               <div className="flex items-center">
-                <FaSchool />
-                <p>Maharishi University</p>
+                <FaSchool className="text-military-secondary" />
+                <p>🏛️ Military Institute</p>
               </div>
               <div className="flex items-center">
-                <IoSchoolSharp />
-                <p>Ph.D. in Quantum Physics</p>
+                <IoSchoolSharp className="text-military-secondary" />
+                <p>🎓 Tactical Operations</p>
               </div>
             </div>
-            <div className="bg-[#0E3A59] m-2 p-5 rounded-3xl overflow-hidden flex flex-col items-center justify-center">
+            
+            <div className="military-card military-glow overflow-hidden flex flex-col items-center justify-center">
               <img
-                className=" rounded-full"
+                className="rounded-full military-icon"
                 src="https://media.istockphoto.com/id/1663458254/photo/portrait-of-beautiful-indian-woman-in-sari.jpg?s=612x612&w=0&k=20&c=raeTJOEyA4sFX_GwrgboXt9ZxtAZ8RkFuljPJnL9sCU="
-                alt=""
+                alt="Captain Sunita Patel"
                 width={200}
               />
-
               <div className="flex items-center justify-start">
-                <CgProfile />
-                <p>Prof. Sunita Patel</p>
+                <CgProfile className="text-military-secondary" />
+                <p>🎖️ Captain Sunita Patel</p>
               </div>
               <div className="flex items-center">
-                <FaSchool />
-                <p>Ramanujan Institute</p>
+                <FaSchool className="text-military-secondary" />
+                <p>🏛️ Defense Research</p>
               </div>
               <div className="flex items-center">
-                <IoSchoolSharp />
-                <p>D.Phil. in Number Theory</p>
+                <IoSchoolSharp className="text-military-secondary" />
+                <p>🎓 Intelligence Analysis</p>
               </div>
             </div>
           </div>
@@ -210,44 +205,41 @@ function Landing() {
       </div>
 
       {/* Courses */}
-      <div className="courses">
-        <p>Faculty List</p>
+      <div className="courses military-fade-in">
+        <div className="military-section-header">
+          <p>🎯 Specialized Training Units</p>
+        </div>
         <hr className="underLine" />
         <div className="subjects">
-          <div className="subject" onClick={() => teachersList("physics")}>
-            <img
-              src="https://www.figma.com/file/6b4R8evBkii6mI53IA4vSS/image/8e9bf690d23d886f63466a814cfbec78187f91d2"
-              alt="Physics"
-            />
-            <p>Physics</p>
+          <div className="subject military-card" onClick={() => teachersList("physics")}>
+            <div className="military-icon">
+              ⚛️
+            </div>
+            <p>Physics & Ballistics</p>
           </div>
-          <div className="subject" onClick={() => teachersList("chemistry")}>
-            <img
-              src="https://www.figma.com/file/6b4R8evBkii6mI53IA4vSS/image/3e546b344774eb0235acc6bf6dad7814a59d6e95"
-              alt="Chemistry"
-            />
-            <p>Chemistry</p>
+          <div className="subject military-card" onClick={() => teachersList("chemistry")}>
+            <div className="military-icon">
+              🧪
+            </div>
+            <p>Chemical Defense</p>
           </div>
-          <div className="subject" onClick={() => teachersList("biology")}>
-            <img
-              src="https://www.figma.com/file/6b4R8evBkii6mI53IA4vSS/image/28ac70002ae0a676d9cfb0f298f3e453d12b5555"
-              alt="Zoology"
-            />
-            <p>Biology</p>
+          <div className="subject military-card" onClick={() => teachersList("biology")}>
+            <div className="military-icon">
+              🧬
+            </div>
+            <p>Biological Warfare</p>
           </div>
-          <div className="subject" onClick={() => teachersList("math")}>
-            <img
-              src="https://www.figma.com/file/6b4R8evBkii6mI53IA4vSS/image/61930117e428a1f0f7268f888a84145f93aa0664"
-              alt="Math"
-            />
-            <p>Math</p>
+          <div className="subject military-card" onClick={() => teachersList("math")}>
+            <div className="military-icon">
+              📊
+            </div>
+            <p>Strategic Mathematics</p>
           </div>
-          <div className="subject" onClick={() => teachersList("computer")}>
-            <img
-              src="https://www.figma.com/file/6b4R8evBkii6mI53IA4vSS/image/a64c93efe984ab29f1dfb9e8d8accd9ba449f272"
-              alt="Computer"
-            />
-            <p>Computer</p>
+          <div className="subject military-card" onClick={() => teachersList("computer")}>
+            <div className="military-icon">
+              💻
+            </div>
+            <p>Cyber Operations</p>
           </div>
         </div>
 
@@ -255,42 +247,40 @@ function Landing() {
           {!loading &&
             facList &&
             facList.map((fac) => (
-              <div key={fac._id} className="bg-[#99afbc] p-5 rounded-md ">
-                <div className="flex gap-3 items-center mb-2 ">
-                  <img
-                    src="https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png"
-                    alt="profile_img"
-                    width={50}
-                  />
+              <div key={fac._id} className="military-card faculty-card">
+                <div className="flex gap-3 items-center mb-2">
+                  <div className="military-icon">
+                    🎖️
+                  </div>
                   <div className="flex flex-col justify-center items-start pl-3">
-                    <p>
+                    <p className="font-bold">
                       {fac.enrolledteacher.Firstname}{" "}
                       {fac.enrolledteacher.Lastname}
                     </p>
                     <h4 className="text-blue-900">
-                      {fac.enrolledteacher.Email}
+                      📧 {fac.enrolledteacher.Email}
                     </h4>
                   </div>
                 </div>
                 {fac.enrolledteacher.Email === "urttsg@gmail.com" ? (
                   <h4>
                     <span className="font-bold text-brown-800">
-                      Education :
+                      🎓 Education:
                     </span>{" "}
-                    Post graduate from Calcutta University
+                    Military Academy Graduate
                   </h4>
                 ) : (
                   <h4>
                     <span className="font-bold text-brown-800">
-                      Education :
+                      🎓 Education:
                     </span>{" "}
-                    Post graduate from Sister Nivedita university
+                    Defense University Graduate
                   </h4>
                 )}
                 {fac.enrolledteacher.Email === "urttsg@gmail.com" ? (
-                  <h4>1 years of teaching experience</h4>
+                  <h4>⏱️ 5 years of military training experience</h4>
                 ) : (
-                  <h4>2 years of teaching experience</h4>
+                  <h4>⏱️ 8 years of defense operations experience</h4>
                 )}
               </div>
             ))}
@@ -298,45 +288,44 @@ function Landing() {
       </div>
 
       {/* About Us */}
-      <div className="about">
-        <h4>About Us</h4>
+      <div className="about military-fade-in">
+        <div className="military-section-header">
+          <h4>🛡️ About Our Mission</h4>
+        </div>
         <div className="content">
           <p>
-            At ShieldGuard, we believe in the power of education to transform
-            lives. Our platform is designed to be a gateway to knowledge,
-            offering a diverse range of courses and learning experiences for
-            students.
+            At ShieldGuard, we believe in the power of strategic defense training to transform military operations. 
+            Our platform is designed to be a gateway to tactical knowledge, offering a comprehensive range of 
+            specialized training programs and operational experiences for military personnel.
           </p>
-          <img src={Plant2} alt="About Us" />
+          <img src={Plant2} alt="Military Operations" className="military-icon" />
           <p>
-            ShieldGuard was born out of a passion for learning and a desire to
-            make quality education accessible to everyone. We understand the
-            challenges faced by modern learners and strive to provide a solution
-            that is both convenient and effective.
+            ShieldGuard was born out of a commitment to military excellence and a desire to make advanced 
+            defense training accessible to all service members. We understand the challenges faced by modern 
+            military operations and strive to provide solutions that are both secure and effective.
           </p>
           <p>
-            Our mission is simple yet profound: to empower individuals through
-            education. We aim to create a global learning community where
-            students can discover new passions, enhance their skills, and
-            achieve their academic and professional goals.
+            Our mission is clear and decisive: to empower military personnel through advanced training. 
+            We aim to create a global defense community where service members can enhance their tactical skills, 
+            develop strategic thinking, and achieve their operational and career objectives.
           </p>
         </div>
       </div>
 
       {/* Contact Us */}
-      <div className="contact-us">
+      <div className="contact-us military-fade-in">
         <div className="message">
-          <h4>Contact Us</h4>
+          <h4>📡 Command Center</h4>
           <p>
-            Have questions or need assistance? We're here to help! Reach out to
-            us anytime, and our team will get back to you as soon as possible.
+            Have operational questions or need tactical assistance? Our command center is here to help! 
+            Reach out to us anytime, and our specialized team will respond with immediate support and guidance.
           </p>
         </div>
         <div className="form">
-          <input type="text" placeholder="Your Name" />
-          <input type="email" placeholder="Your Email" />
-          <textarea placeholder="Your Message"></textarea>
-          <button>Submit</button>
+          <input type="text" placeholder="Your Name & Rank" className="military-input" />
+          <input type="email" placeholder="Your Military Email" className="military-input" />
+          <textarea placeholder="Your Message" className="military-input"></textarea>
+          <button className="military-button">Submit Report</button>
         </div>
       </div>
 

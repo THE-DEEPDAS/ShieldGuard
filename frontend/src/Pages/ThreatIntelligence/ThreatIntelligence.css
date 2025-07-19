@@ -1,80 +1,429 @@
-/* Apply gradient background to the entire page */
+/* Military-themed Threat Intelligence Styles */
 .threat-intelligence {
-  background: linear-gradient(135deg, #2d0808, #ac7d13);
-  color: #ffffff; /* Set text color to white for better contrast */
+  background: linear-gradient(135deg, var(--military-primary), var(--military-secondary));
+  color: var(--military-light);
   min-height: 100vh;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  padding: 2rem;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Style the header */
-header {
-  background: linear-gradient(135deg, #caae71, #fffbf0); /* Apply gradient */
-  color: #000; /* Ensure text is readable */
+.threat-intelligence::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(202, 174, 113, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+  z-index: 0;
 }
 
 .threat-intelligence h1 {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #ffd700; /* Gold color for the header */
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: var(--military-secondary);
+  font-weight: 900;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+  animation: militaryFadeIn 1s ease-out;
 }
 
-/* Style the status message */
+.threat-intelligence h1::before {
+  content: '🎯';
+  margin-right: 15px;
+  animation: militaryPulse 2s infinite;
+}
+
+.threat-intelligence h1::after {
+  content: '🛡️';
+  margin-left: 15px;
+  animation: militaryGlow 3s ease-in-out infinite;
+}
+
 .status-message {
   text-align: center;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  color: #ffffff;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: var(--military-light);
+  background: linear-gradient(135deg, rgba(45, 8, 8, 0.8), rgba(45, 8, 8, 0.6));
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: 2px solid var(--military-secondary);
+  box-shadow: 0 8px 25px var(--military-shadow);
+  position: relative;
+  z-index: 2;
+  animation: militarySlideIn 0.8s ease-out;
 }
 
-/* Style the error message */
+.status-message::before {
+  content: '📡';
+  margin-right: 10px;
+  font-size: 1.5rem;
+  animation: militaryGlow 2s ease-in-out infinite;
+}
+
 .error-message {
   text-align: center;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  color: #ff4d4d; /* Red color for errors */
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: var(--military-light);
+  background: linear-gradient(135deg, var(--military-danger), #a00);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: 2px solid #ff4444;
+  box-shadow: 0 8px 25px var(--military-shadow);
+  position: relative;
+  z-index: 2;
+  animation: militaryAlert 0.5s ease-in-out 3;
 }
 
-/* Style the news list container */
+.error-message::before {
+  content: '⚠️';
+  margin-right: 10px;
+  font-size: 1.5rem;
+  animation: militaryPulse 1s infinite;
+}
+
 .news-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-/* Style individual news items */
 .news-item {
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, rgba(45, 8, 8, 0.9), rgba(45, 8, 8, 0.8));
+  backdrop-filter: blur(15px);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px var(--military-shadow);
+  border: 2px solid var(--military-secondary);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  animation: militaryFadeIn 0.6s ease-out;
 }
 
-/* High threat level styling */
+.news-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(202, 174, 113, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.news-item:hover::before {
+  left: 100%;
+}
+
+.news-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--military-shadow);
+  border-color: var(--military-accent);
+}
+
+/* Threat Level Indicators */
 .threat-high {
-  border-left: 5px solid #ff0000; /* Red border for high threat */
+  border-left: 8px solid var(--military-danger);
+  background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(45, 8, 8, 0.9));
 }
 
-/* Medium threat level styling */
+.threat-high::after {
+  content: '🚨 HIGH THREAT';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--military-danger);
+  color: var(--military-light);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: militaryPulse 1.5s infinite;
+}
+
 .threat-medium {
-  border-left: 5px solid #ffa500; /* Orange border for medium threat */
+  border-left: 8px solid var(--military-warning);
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.2), rgba(45, 8, 8, 0.9));
 }
 
-/* Low threat level styling */
+.threat-medium::after {
+  content: '⚠️ MEDIUM THREAT';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--military-warning);
+  color: var(--military-primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .threat-low {
-  border-left: 5px solid #00ff00; /* Green border for low threat */
+  border-left: 8px solid var(--military-success);
+  background: linear-gradient(135deg, rgba(74, 93, 35, 0.2), rgba(45, 8, 8, 0.9));
 }
 
-/* Style the news title */
+.threat-low::after {
+  content: '✅ LOW THREAT';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--military-success);
+  color: var(--military-light);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .news-item h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #ffd700; /* Gold color for titles */
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--military-secondary);
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.3;
+  padding-right: 150px; /* Space for threat level badge */
 }
 
-/* Style the news description */
 .news-item p {
-  margin: 5px 0;
-  color: #ffffff;
+  margin: 1rem 0;
+  color: var(--military-light);
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.news-item p:last-child {
+  font-weight: bold;
+  color: var(--military-secondary);
+  background: rgba(202, 174, 113, 0.1);
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--military-secondary);
+  margin-top: 1.5rem;
+}
+
+.news-item p:last-child::before {
+  content: '📊 ';
+  margin-right: 8px;
+}
+
+/* Loading Animation */
+.loading-indicator {
+  text-align: center;
+  padding: 3rem;
+  color: var(--military-secondary);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.loading-indicator::before {
+  content: '⏳';
+  margin-right: 10px;
+  animation: militaryPulse 1s infinite;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--military-light);
+  background: linear-gradient(135deg, rgba(45, 8, 8, 0.8), rgba(45, 8, 8, 0.6));
+  border-radius: 15px;
+  border: 2px solid var(--military-secondary);
+  box-shadow: 0 10px 30px var(--military-shadow);
+}
+
+.empty-state h3 {
+  color: var(--military-secondary);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state h3::before {
+  content: '📡';
+  margin-right: 10px;
+}
+
+.empty-state p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .threat-intelligence {
+    padding: 1rem;
+  }
+  
+  .threat-intelligence h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .threat-intelligence h1::before,
+  .threat-intelligence h1::after {
+    font-size: 1.8rem;
+    margin: 0 8px;
+  }
+  
+  .status-message,
+  .error-message {
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .news-item {
+    padding: 1.5rem;
+  }
+  
+  .news-item h2 {
+    font-size: 1.5rem;
+    padding-right: 120px;
+  }
+  
+  .news-item p {
+    font-size: 1rem;
+  }
+  
+  .threat-high::after,
+  .threat-medium::after,
+  .threat-low::after {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .threat-intelligence h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  
+  .threat-intelligence h1::before,
+  .threat-intelligence h1::after {
+    font-size: 1.5rem;
+    margin: 0 5px;
+  }
+  
+  .status-message,
+  .error-message {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+  
+  .news-item {
+    padding: 1rem;
+  }
+  
+  .news-item h2 {
+    font-size: 1.3rem;
+    padding-right: 100px;
+  }
+  
+  .news-item p {
+    font-size: 0.9rem;
+  }
+  
+  .threat-high::after,
+  .threat-medium::after,
+  .threat-low::after {
+    font-size: 0.6rem;
+    padding: 3px 6px;
+    top: 8px;
+    right: 8px;
+  }
+  
+  .empty-state {
+    padding: 2rem 1rem;
+  }
+  
+  .empty-state h3 {
+    font-size: 1.5rem;
+  }
+  
+  .empty-state p {
+    font-size: 1rem;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .news-item {
+    border-width: 3px;
+  }
+  
+  .threat-high {
+    border-left-width: 12px;
+  }
+  
+  .threat-medium {
+    border-left-width: 12px;
+  }
+  
+  .threat-low {
+    border-left-width: 12px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .threat-intelligence::before,
+  .news-item,
+  .threat-intelligence h1::before,
+  .threat-intelligence h1::after,
+  .status-message::before,
+  .threat-high::after {
+    animation: none;
+  }
+  
+  .news-item:hover {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .threat-intelligence {
+    background: white;
+    color: black;
+  }
+  
+  .news-item {
+    background: white;
+    border: 2px solid black;
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+  
+  .threat-high::after,
+  .threat-medium::after,
+  .threat-low::after {
+    background: black;
+    color: white;
+  }
 }
